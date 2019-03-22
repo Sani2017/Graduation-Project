@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作品详情页</title>
+    <link rel="stylesheet" href="css/amazeui.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/mycss.css"/>
+    <link rel="stylesheet" href="css/worksCss.css">
+</head>
+<!--https://www.cnblogs.com/mr-amazing/p/5674188.html-->
+<style type="text/css">
+    .am-topbar .am-text-ir {
+        display: block;
+        margin-right: 10px;
+        height: 55px;
+        width: 140px;
+        background: url(images/logo.png) no-repeat left center;
+        -webkit-background-size: 125px 24px;
+        background-size: 125px 24px;
+    }
+</style>
+<script>
+</script>
+<body>
+<!--<h2>两套查询，上用户，作品；下留言回复</h2>作品详情页完成-->
+<div id="xs_login_output" style="display: none"></div>
+
+<header>
+    <div id="xs_header_back" class="am-topbar am-topbar-inverse">
+        <nav >
+            <span id="logo" class="am-topbar-brand">
+                <a href="index.html" class="am-text-ir"></a>
+                <!-- <img src="" alt="logo">logo -->
+            </span>
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse-2'}" style="margin-top: 10px;">
+                <span class="am-sr-only">导航切换</span>
+                <span class="am-icon-bars"></span>
+            </button>
+            <div class="am-collapse am-topbar-collapse xs_text_center" id="doc-topbar-collapse-2">
+                <!-- 导航 style="display: none;"-->
+                <div class="xs_nav_content nav_transition transition  "  id="xs_nav_content">
+                    <ul class="am-nav am-nav-pills"  id="xs_header_nav">
+                        <li><a href="index.html">首页</a></li><!-- am-topbar-nav -->
+                        <li><a href="discover.html">发现</a></li>
+                        <li><a href="activity.html">活动</a></li>
+                        <li><a href="Popular_list.html">榜单</a></li>
+                        <li><a href="Popular_list_user.html">大佬</a></li>
+                    </ul>
+                </div>
+                <!-- 搜索框style="display:none" placeholder="请搜索……"-->
+                <div class="xs_serch_input  transition " id="xs_serch_input"  >
+                    <form action="#" id="xs_header_serher">
+                        <span class="am-icon-close am-icon-sm xs_input_close" id="xs_input_close" onclick="clk();"></span><!-- onkeyup="inutpSelect();"-->
+                        <input type="text"  autofocus="autofocus" autocomplete="off"
+                               id="xs_search_input"   style="outline:none;"><!--onkeyup="inutpSelect();"-->
+                        <span class="am-icon-search am-icon-sm" id="xs_input_search"></span>
+                        <!--添加判断，如搜索框无值这调用clk()，有值跳转-->
+                        <div id="search-content" class="search-content">
+                            <div class="search-content-list">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="am-topbar-right" id="xs_content_login_box">
+                    <div class="am-topbar-right">
+
+                        <div class="am-dropdown" id="xs_login_box" data-am-dropdown="{boundary: '.am-topbar'}"><!-- style="height: 55px;"-->
+                            <!-- 用户未登录显示 -->
+                            <!-- <ul class="unlogin" >
+                                <li>
+                                    <span class="am-icon-search am-icon-sm am-btn am-btn-sm xs_header_btn_style xs_search_icon" onclick="clk()"></span>
+                                    <a href="#" class=" am-btn xs_header_btn_style" id="xs_login_btn">登录</a>
+                                    <i></i>
+                                    <a href="#" class="am-btn  xs_header_btn_style" id="xs_reg_btn">注册</a>
+                                </li>
+                            </ul> -->
+                            <!-- 用户登录显示 -->
+                            <!--<ul class="logining">
+                                <li>
+                                    <span class="am-icon-search am-icon-sm am-btn am-btn-sm xs_header_btn_style xs_search_icon" onclick="clk()"></span>
+                                    <span class="am-icon-home am-icon-sm am-btn am-btn-sm xs_header_btn_style" id="xs_info_btn"></span>
+                                    <span class="xs_user_img">
+                                        <a href="#">
+                                            <img src="http://localhost:6992//upload/userImg/03.jpg" alt="头像">
+                                        </a>
+                                        <a href="#">退出</a></span>
+                                </li>
+                            </ul>  -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div>
+        <div class="" id="xs_slides_box" style="margin: 0 auto;">
+            <div class="xs_top_img">
+                <img src="images/top_1.jpg" width="100%" height="100%" alt="" title="" border="0">
+            </div>
+            <div class="work_details_wrap">
+                <div class="left_details_head">
+                    <div class="details_contitle_box">
+                        <h2 class="details_contitle_title">文章标题</h2>
+                        <p title="审核通过时间：2018-12-30 23:56:57；创建时间：2018-12-30 17:53:25" class="title-time">
+                            <span>1天前</span>发布
+                        </p>
+                        <div class="work_head_box">
+                            <div class="head_left">
+                                <span class="head_index">
+                                    <span><a href="">web</a></span>
+                                    <i>/</i>
+                                </span>
+                            </div>
+                            <div class="head_right">
+                                <span class="head_data_show">
+                                    <a href="javascript:;" title="共2571人气" class="see vertical-line">
+                                        <span>
+                                            <i class=" am-icon-thumbs-up am-icon-fw"></i>2571
+                                        </span>
+                                        <span>
+                                            <i class="am-icon-eye am-icon-fw"></i>12
+                                        </span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right_details_head">
+                    <div class="avatar-container">
+                        <a href="" class="avatar">
+                            <img src="images/03.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="author_info">
+                        <p class="author_info_title"><a href="">userName</a></p>
+                        <div class="position_info">
+                            <span>个性签名</span>
+                        </div>
+                        <div class="btn_area">
+                            <button class="btn_default_main">
+                                详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+<div id="content" style="background: #f4f4f4;">
+    <!-- data-am-smooth-scroll="{position: 691}"滚动定位 xstent_current-->
+    <!--<ul  data-am-smooth-scroll="{position: 640}" class="xs_content_nav " data-am-sticky>-->
+        <!--<li class="xs_content_nav_mark xs_content_current currentSelect" id="navMark_0">-->
+            <!--<a href="#">最新发布</a>-->
+        <!--</li>-->
+        <!--<li class="xs_content_nav_mark"  id="navMark_1">-->
+            <!--<a href="#">赞数最多</a>-->
+        <!--</li>&lt;!&ndash;点击出dom 锚点返回上层&ndash;&gt;-->
+        <!--<li class="xs_content_nav_mark "  id="navMark_2">-->
+            <!--<a href="#">浏览最多</a>-->
+        <!--</li>-->
+        <!--&lt;!&ndash; <li class="asd " id="asasas">sdf</li> &ndash;&gt;-->
+    <!--</ul>-->
+    <div id="xs_content_menu" class="work_bg">
+        <!-- 下面的max-width控制一行有多少图 -->
+        <div class="am-g am-g-fixed blog-fixed blog-content work_bg" style="max-width: 1130px;">
+            <!--  am-figure 这个会class 会出现图片浏览器    -->
+            <figure data-am-widget="figure" class="am  am-figure-default "   data-am-figure="{  pureview: 'true' }">
+                <!--此处输出作品列表-->
+                <div class="cotent_work">
+                <p>这里是文章的内容啊实打实大苏打34未完善短发安然3deqWQ让对得起我出二位充电器为CDWCQ二2让对得起我出二位充电器为CDWCQ二这里是文章的内容啊实打实大苏打34未完善短发安然3aaaaaaaaaaaaaaaaaaaaajk</p>
+                <p>fdfge3544yyhgfhkjhybykok98htgfryk</p>
+                    <img src="images/05.jpg" alt=""></p>
+                    <!--
+                    <p([^>])*>(?=([^<]*)<img([^>])*>)|(?<=<img([^>]*)>([^<]*))
+                    -->
+                </div>
+                <div class="recommend_box ">
+                    <a class="recommend_works">
+                        <i class=" am-icon-thumbs-up am-icon-md"></i>
+                        <span class="recommend_number">78</span>
+                    </a>
+                </div>
+            </figure>
+            <div id="page3"><!--分页页码的显示-->
+
+            </div>
+        </div>
+
+        <div id="tips3" class="dsno"></div>
+        <div id="allPage"></div>
+    </div>
+    <div id="xs_content_comment_list">
+        <div class="pinlunt">
+            <textarea type="text" id="comment_add_textarea" placeholder="说点什么..." class="textarea_style" style="padding-right: 60px;"></textarea>
+            <a class="count" id="upOnlineText">发送</a>
+        </div>
+        <div class="commentwrap">
+            <ul class="commentcon">
+                <li class="comment_list">
+                    <div class="comment_list_box">
+                        <!--头像-->
+                        <div class="comment_list_userImg">
+                            <a href="" class="userImg">
+                                <img src="images/06.jpg" alt="">
+                            </a>
+                        </div>
+                        <!--用户名-->
+                        <div class="timebox">
+                            <a href="" class="usernick">userNAme</a>
+                            <span class="issuetimer">
+                                <span class="time">时间</span>
+                            </span>
+                        </div>
+                        <!--留言-->
+                        <p class="commoncon">
+                            <span class="commontxt">AI里用画笔工具画</span>
+                        </p>
+                        <!--回复-->
+                        <div class="quote_content_wrap">
+                            <i></i>
+                            <div class="usernicks">
+                                <div class="usernick_box">
+                                    <a href="" class="designer_name">userName</a>
+                                    <span class="issuetimer">
+                                        <span class="time">时间</span>
+                                    </span>
+                                </div>
+                                <span class="userreply">牛逼，跟幸运能够与你成为同事，让我看到了热爱设计所能到达的高度。19年请继续教我画画！～一起继续加油！</span>
+                            </div>
+
+                        </div>
+
+                        <div class="quote_content_wrap">
+                            <i></i>
+                            <div class="usernicks">
+                                <div class="usernick_box">
+                                    <a href="" class="designer_name">userName</a>
+                                </div>
+                                <span class="userreply">牛逼，跟幸运能够与你成为同事，让我看到了热爱设计所能到达的高度。19年请继续教我画画！～一起继续加油！</span>
+                            </div>
+
+                        </div>
+                        <!--点赞-->
+                        <div class="commenticons">
+                            <div class="ricons">
+                                <a href="javascript:void(0)" class="comment_news" id="reply_btn">回复<span>1</span></a>
+                                <a href="javascript:void(0)" class="comment_zan">赞<span>0</span></a>
+
+
+                            </div>
+
+                        </div>
+                        <!--输出时把留言的id付给回复按钮和回复宽，点击回复按年显示相应的回复框-->
+                        <div class="reply_text" style="display: none;">
+                            <input type="text" class="workName_text" ><a href="">发送</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<footer>
+    <div class="am-g   blog-fixed">
+        <div class="xs_bottom_logo"></div>
+        <div class="xs_bottom_icon"><!--  xs_border_style-->
+            <p>
+                <a href="javacript:void(0);">
+                    <span class="am-icon-qq am-icon-fw xs_bottom_icon_style xs_qq_ewm">
+                        <i class="xs_qqicon_hover"></i>
+                    </span>
+                </a>
+                <a href="javacript:void(0);">
+                    <span class="am-icon-weixin am-icon-fw xs_bottom_icon_style xs_weixin_ewm">
+                        <i class="xs_wxicon_hover"></i>
+                </span></a>
+            </p>
+        </div>
+    </div>
+    <h1 class="hone" id="hiii">明天把分页  用好，并制作搜索页面</h1>
+
+    <div class="blog-text-center">&copy;2018 Purple dandel. Licensed under MIT license. Made with love By LWXYFER</div>
+</footer>
+<!-- 回到顶部功能 -->
+<div data-am-widget="gotop" class="am-gotop am-gotop-fixed xs_gotop">
+    <a href="#top" title="回到顶部">
+        <span class="am-gotop-title">回到顶部</span>
+        <i class="am-icon-btn am-icon-rocket amdoc-totop xs_gotop_icon"></i>
+    </a>
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/jquery.min.js"></script>
+<script src="js\jquery.cookie.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="js/amazeui.min.js"></script>
+<script src="js/pinto.min.js"></script>
+<script src="js/img.js"></script>
+<script src="js/outList.js"></script>
+<script src="js/drag.js"></script>
+<script src="js/selectkey.js"></script>
+<script  src="js/login.js"></script>
+<script  src="js/commonJS.js"></script>
+<!-- 此处是每个页面均会使用到的js -->
+<script type="text/javascript" src="js/amazeui.page.js"></script>
+
+<script type="text/javascript">
+    //不能去除</p>
+//     var asd='     <p>fdfge3544yyhgfhkjhybykok98htgfryk</p>\n' +
+// '                    <p><img src="images/05.jpg" alt=""></p>';
+//     var zz=new RegExp("<p([^>])*>(?=([^<]*)<img([^>])*>)|(?<=<img([^>]*)>([^<]*))");
+//     alert(asd.replace(zz,''));
+
+    //获取url传值
+    var WorksValueUrl= GetQueryStringByUrl("workId");
+    if(WorksValueUrl==null){
+        window.location.href="index.html";
+        window.history.back(-1);
+    }else {
+        //作品是否存在与状态的判断
+        $.ajax({
+            url: "http://localhost:6992/api/Works/outputWorkStateById",
+            type: "Get",
+            async: true,
+            data:{workId:""+WorksValueUrl+""},
+            success: function (returndata) {
+                if(returndata.suc==true){
+                    //增加浏览量
+                    $.ajax({
+                        url: "http://localhost:6992/api/Works/UpdatWorksHits",
+                        type: "Get",
+                        async: true,
+                        data:{id:""+WorksValueUrl+""},
+                        success: function (returndata) {
+                            if(returndata.suc==true){
+                                GetWorkInfoByWorkId(WorksValueUrl);
+                                GetOnlineAndReplyByWorkId(WorksValueUrl);
+                            }else {
+                                alert(returndata.mes);
+                                window.location.href="index.html";
+                                window.history.back(-1);
+                            }
+                        },
+                        error: function (returndata) { alert(returndata+"错误"); }
+                    });
+
+                }else {
+                    alert(returndata.mes);
+                    window.location.href="index.html";
+                    window.history.back(-1);
+                }
+            },
+            error: function (returndata) { alert(returndata+"错误"); }
+        });
+        //outPages http://localhost:63342/MyHtml/activity_Details.html?activity=1
+    }
+
+
+    window.onload = function () {
+        outLoginBox();//输出登录dom
+        loginBox();//输出header登录状态
+        //登录模块效果
+        $(".xs_login_mark").on('click',function(){
+            $(".xs_login_mark").removeClass('xs_content_current');
+            $(this).addClass('xs_content_current');
+            if($('.xs_login_display').hasClass('dsno')){
+                $('.xs_login_display').removeClass('dsno');
+                $(".xs_login_display").addClass('dsbl');
+            }
+            else if($('.xs_login_display').hasClass('dsbl')){
+                $('.xs_login_display').removeClass('dsbl');
+                $(".xs_login_display").addClass('dsno');
+            }
+            if($('.password').hasClass('dsbl')){//手机登录
+                $('.password').removeClass('dsbl');
+                $(".password").addClass('dsno');//不显示
+                $("#xs_password").val("");
+                $('#login_btn').attr({"disabled":"disabled"});//禁用
+                $('.xs_error_tips').addClass('dsno');
+            }else{
+                $('.password').removeClass('dsno');//密码登录
+                $("#xs_password").val("");
+                $(".password").addClass('dsbl');//显示
+                $('.xs_error_tips').addClass('dsno');
+                $('#login_btn').attr({"disabled":"disabled"});//禁用
+            }
+            $('#drag').drag();//滑动要放在登录模块是否显示之后
+        });
+        $('.btn-loading-example').click(function () {
+        var loginState=$(".xs_content_current").attr("id");
+        var str=loginState.lastIndexOf("\_");
+        var newState=loginState.substring(str+1,loginState.length);
+        var login_btn=$('#login_btn');
+        if(newState==0){//用户密码
+            var userName=$.trim($('#xs_username').val());//用户名或手机
+            var password=$.trim($('#xs_password').val());//用户密码
+            if(userName!=""&&password!=""){
+                var $btn = $(this)
+                $btn.button('loading');
+                setTimeout(function(){
+                    $btn.button('reset');//
+                }, 500);
+                namePwd_login(userName,password);
+            }else{
+                $('.xs_errpr_text ').text("所填值不能为空");
+                $('.xs_error_tips').removeClass('dsno');
+                login_btn.attr({"disabled":"disabled"});
+                return;
+            }
+        }
+        if(newState==1){//手机验证
+            var userName=$.trim($('#xs_username').val());//用户名或手机
+            var smsCd=$.trim($('#sms-cd').val());//验证码
+            if(userName!=""&&smsCd!=""){//手机登录
+                var $btn = $(this);
+                $btn.button('loading');
+                setTimeout(function(){
+                    $btn.button('reset');
+                }, 500);
+                phone_login(userName,smsCd);
+            }else{
+                $('.xs_errpr_text ').text("所填值不能为空");
+                $('.xs_error_tips').removeClass('dsno');
+                login_btn.attr({"disabled":"disabled"});
+                return;
+            }
+        }
+    });
+    };
+    $(function () {
+
+        //回复按钮
+        $(document).on('click', '.reply_btn', function() {
+            alert($(this).attr("id"));
+            var reply_box="."+$(this).attr("id");
+            // var a=".reply";
+            // var b="_text";
+            // var c=a+b;
+
+            var userId_local=localStorage.getItem("userId");
+            if(userId_local!=null) {
+                $(reply_box).toggle(700);
+            }else {
+                alert("请先登录，才能使用回复功能")
+            }
+        });
+        //提交回复按钮
+        $(document).on('click', '.upBtn', function() {
+            var userId_local=localStorage.getItem("userId");
+            if(userId_local!=null) {
+                //取第二个class（留言id）并拆分字符串
+                var allClass = $(this).attr("class");
+                var var2 = allClass.split(' ');
+                var str = var2[1].lastIndexOf("\_");
+                var OnlineId = var2[1].substring(str + 1, var2[1].length);
+                alert(OnlineId);//取到留言id
+                var recontent=$(".OnlineIdText_" + OnlineId + "").val();
+                alert(recontent);//取到回复内容
+                $.ajax({
+                    url: "http://localhost:6992/api/Reply/AddReplyInfo",
+                    type: "post",
+                    async: true,
+                    data:{OnlineId:""+OnlineId+"",
+                        RUid:""+userId_local+"",
+                        Recontent:""+recontent+""},
+                    success: function (returndata) {
+                        if(returndata.suc==true){
+                            //输出评论列表
+                            GetOnlineAndReplyByWorkId(WorksValueUrl);
+                        }else {
+                            alert(returndata.mes);
+                        }
+                    },
+                    error: function (returndata) { alert(returndata+"错误"); }
+                });
+
+            }else{
+                alert("请先登录，才能使用回复功能")
+            }
+        });
+        //发送留言按钮
+        $(document).on('click', '#upOnlineText', function() {
+            var onlineText=$("#comment_add_textarea").val();
+            var userId_local=localStorage.getItem("userId");
+            if(userId_local!=null) {
+                $.ajax({
+                    url: "http://localhost:6992/api/Online/AddOnlineInfo",
+                    type: "post",
+                    async: true,
+                    data:{PlaceId:""+WorksValueUrl+"",//留言地点
+                        Uid:""+userId_local+"",//留言人id
+                        OnlineContent:""+onlineText+""},//留言内容
+                    success: function (returndata) {
+                        if(returndata.suc==true){
+                            //输出评论列表
+                            GetOnlineAndReplyByWorkId(WorksValueUrl);
+                            $("#comment_add_textarea").val("");
+                        }else {
+                            alert(returndata.mes);
+                            $("#comment_add_textarea").val("");
+                        }
+                    },
+                    error: function (returndata) { alert(returndata+"错误"); }
+                });
+
+            }else{
+                alert("请先登录，才能使用回复功能")
+            }
+        });
+        //留言点赞
+        $(document).on('click', '.comment_zan', function() {
+                //取第二个class（留言id）并拆分字符串
+                var allClass = $(this).attr("class");
+                var var2 = allClass.split(' ');
+                var str = var2[1].lastIndexOf("\_");
+                var OnlineId = var2[1].substring(str + 1, var2[1].length);
+                alert(OnlineId);//取到留言id
+            $.ajax({
+                url: "http://localhost:6992/api/Online/UpdatOnlineLikes",
+                type: "get",
+                async: true,
+                data:{id:""+OnlineId+""},
+                success: function (returndata) {
+                    if(returndata.suc==true){
+                        //输出评论列表
+                        GetOnlineAndReplyByWorkId(WorksValueUrl);
+                    }else {
+                        alert(returndata.mes);
+                    }
+                },
+                error: function (returndata) { alert(returndata+"错误"); }
+            });
+        });
+        //作品点赞
+        $(document).on('click', '.recommend_works', function() {
+            if($(".recommend_works").hasClass("over_zan")){
+                return false;
+            }else {
+                $.ajax({
+                    url: "http://localhost:6992/api/Works/UpdatWorksLikesCount",
+                    type: "get",
+                    async: true,
+                    data:{id:""+WorksValueUrl+""},
+                    success: function (returndata) {
+                        if(returndata.suc==true){
+                            //输出评论列表
+                            GetWorkInfoByWorkId(WorksValueUrl);
+                            $(".recommend_works").addClass("over_zan");
+                        }else {
+                            alert(returndata.mes);
+                        }
+                    },
+                    error: function (returndata) { alert(returndata+"错误"); }
+                });
+            }
+        });
+        //退出按钮
+        $(document).on('click', '.xs_Exit', function() {
+
+            $(".reply_text").hide();
+        });
+        $(document).on('click', '.FileDownload', function(){
+            var FileDownloadUrl = $(this).attr('id');
+            alert(FileDownloadUrl);
+            window.location =
+                "http://localhost:6992/api/Works/DownloadFile?" +
+                "fileName=附件&fPath="+FileDownloadUrl;
+        });
+    });
+
+</script>
+<script>
+</script>
+</body>
+</html>

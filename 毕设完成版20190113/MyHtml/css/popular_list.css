@@ -1,0 +1,354 @@
+#sortIdList,#worksList{
+    /*display: inline-block;*/
+}
+ul,li,p{
+    margin: 0;
+    padding: 0;}
+#sortIdList {
+    float: left;
+    width: 17%;
+    background: #fff;
+    text-align: left;
+}
+/*#sortIdList ul li a{*/
+    /*display: inline-block;*/
+    /*height: 50px;*/
+    /*line-height: 50px;*/
+    /*width: 100%;*/
+    /*border-bottom: #fafafa 1px solid;*/
+/*}*/
+.xs_sortList_title{
+    height: 55px;
+    line-height: 55px;
+    text-indent: 15%;
+    font-size: 16px!important;
+    border-bottom: 1px solid #eeeeee;
+    overflow: hidden;/*内容超出后隐藏*/
+    text-overflow: ellipsis;/* 超出内容显示为省略号*/
+    white-space: nowrap;/*文本不进行换行*/
+}
+#sortIdList ul li {
+    /*width: 208px;*/
+    height: 55px;
+    line-height: 55px;
+    cursor: pointer;
+    list-style: none;
+    text-indent: 15%;
+    box-sizing: content-box;/*css3*/
+    font-size: 14px;
+    position: relative;
+}
+#sortIdList ul li i{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 3px;
+    height: 30px;
+    background: #FF9222;
+    vertical-align: middle;
+}
+#sortIdList ul li p:hover{
+    background: #FF9222;
+}
+#worksList {
+    float: right;
+    width: 82%;
+    background: #fff;
+    text-align: left;
+}
+.xs_worksList_title{
+    padding-left: 30px;
+    height: 55px;
+    line-height: 55px;
+    font-size: 16px!important;
+    border-bottom: 1px solid #eeeeee;
+}
+.contentInfo{
+    width: 100%;
+}
+.contentInfo a{
+    transition: opacity 0.5s ease,background 0.4s ease-in;
+}
+.contentInfo a:hover{
+    opacity: 0.7;
+}
+.rank,.showImg,.author{
+    float: left;
+    /* display: inline-block; */
+}
+.rank{
+    /*border: 1px #FF9222 solid;*/
+    width: 15%;
+    text-align: center;
+    
+    /*height: 195px;*/
+}
+.rank_content {
+    padding-top: 20px;
+
+}
+.rank_num{
+    font-size: 52px;
+    font-weight: bold;
+}
+.score{
+    font-size: 14px;
+    color: #bbb;
+}
+.score_num{
+    font-size: 18px;
+    color: #444444;
+    text-align: center;
+    font-weight: 600;
+}
+.showImg{
+    /*border: 1px #FF9222 solid;*/
+    width: 260px;
+    margin-right: 20px;
+}
+.showImg img{
+    vertical-align:bottom;
+    display: inline-block;
+    width: 260px;
+    height: 195px;
+}
+.author{
+    /*border: 1px #FF9222 solid;*/
+    height: 195px;
+    width: 200px;
+    position: relative;
+}
+.workTitle{
+    margin: 5px 0 5px 0;
+    font-size: 16px;
+    overflow: hidden;/*内容超出后隐藏*/
+    text-overflow: ellipsis;/* 超出内容显示为省略号*/
+    white-space: nowrap;/*文本不进行换行*/
+}
+.workSort{
+    font-size: 12px;
+    color: #bbb;
+}
+
+.userInfo{
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    overflow: hidden;/*内容超出后隐藏*/
+    text-overflow: ellipsis;/* 超出内容显示为省略号*/
+    white-space: nowrap;/*文本不进行换行*/
+}
+.userImg img{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    
+}
+.userName{
+    display: inline-block;
+    font-size: 14px;
+
+}
+.date{
+    font-size: 12px;
+    color: #bbb;
+}
+.contentInfo_li{
+    position: relative;
+    height: 220px;
+    border-bottom: 1px solid #eeeeee;
+    padding-top: 10px;
+}
+.pick{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: #bbb;
+    font-size: 14px;
+    /*float: right;*/
+    /*margin: 5px 15px 0 0;*/
+}
+.color a i{
+    display:block!important;
+}
+/* 用户与作品榜单——大佬页css */
+.userList{
+    text-align: left;
+    margin-top: 20px;
+    border-radius: 5px;
+    background: #fff;
+}
+.card_user_list{
+    padding: 30px;
+    border-bottom: 1px solid #eee;
+}
+.popularUserImg{
+    height: 80px;
+}
+.avatar{
+    /* float: left; */
+}
+.avatar img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    vertical-align: top;
+}
+.author_info{
+    display: inline-block;
+    width: 220px;
+    /* height: 150px; */
+    margin-left: 20px;
+    position: relative;
+    /*border: 1px solid #000;*/
+
+}
+.author_info_name{
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+}
+.author_info_workCount{
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+.author_info_workCount strong{
+    color: #111111;
+    font-size: 16px
+}
+.author_info_label{
+    overflow: hidden;/*内容超出后隐藏*/
+    text-overflow: ellipsis;/* 超出内容显示为省略号*/
+    white-space: nowrap;/*文本不进行换行*/
+    font-size: 12px;
+    color: #666;
+    margin: 5px 0 20px 0;
+}
+.author_info_btn a{
+    display: inline-block;
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 5px;
+    background: #FF9222;
+    color: #333;
+    transition: opacity 0.5s ease,background 0.4s ease-in;
+
+}
+.author_info_btn a:hover{
+    opacity: 0.7;
+}
+.card_work_list{
+    float: right;
+    /* display: inline-block; */
+}
+.work_con_box li{
+    float: left;
+}
+.work_con_box :last-child{
+    margin-right: 0
+}
+.work_item{
+    margin-right: 15px;
+}
+.seize_box{
+    width: 26px;
+    margin-left: 20px;
+    margin-right: -10px;
+    float: right;
+}
+.work_show_more a{
+    width: 6px;
+    height: 150px;
+    padding: 0 10px;
+    display: block;
+    text-align: center;
+    line-height: 180px;
+    position: relative;
+}
+.more_icon{
+    position: absolute;
+    top: 50%;
+    margin-top: -19px;
+    left: 50%;
+    margin-left: -3px;
+    display: inline-block;
+}
+.more_icon span{
+    display: block;
+    width: 6px;
+    height: 6px;
+    margin: 5px 0;
+    background: #FF9222;
+    border-radius: 50%;
+}
+.am-pagination>li>a{
+    border-radius: 5px;
+}
+#page3 ul{
+    margin-left: 0;
+}
+.am-active>.clickPage{
+    background-color: #FF9222!important;
+    border-color: #FF9222!important;
+}
+@media(max-width:1290px){
+    .author_info{
+        width: 110px;
+    }
+}
+@media(max-width:1180px) {
+    .work_con_box li:nth-child(4){
+        display: none
+    }
+}
+@media(max-width:966px) {
+    .work_con_box li:nth-child(3){
+        display: none
+    }
+}
+@media(max-width:750px) {
+    .work_con_box li:nth-child(2){
+        display: none
+    }
+}
+@media(max-width:535px) {
+    .popularUserImg{
+        display: none
+    }
+}
+/* css相关兼容 */
+@media(max-width:690px){
+    .author,.userInfo{
+        width:100px;
+    }
+}
+
+@media(max-width:690px) {
+    .pick{
+        display: none;
+    }
+}
+@media(max-width:546px) {
+    .showImg{
+        margin-right: 10px;
+    }
+    .showImg img{
+        vertical-align:bottom;
+        display: inline-block;
+        width: 260px;
+        height: 195px;
+    }
+}
+@media(max-width:531px) {
+    .author{display: none}
+    .rank {
+        width: 19%;}
+}
+@media(max-width:455px) {
+.seize_box{display: none}
+}

@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/amazeui.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/mycss.css"/>
+</head>
+<!--https://www.cnblogs.com/mr-amazing/p/5674188.html-->
+<style type="text/css">
+
+    .am-topbar .am-text-ir {
+    display: block;
+    margin-right: 10px;
+    height: 55px;
+    width: 140px;
+    background: url(images/logo.png) no-repeat left center;
+    -webkit-background-size: 125px 24px;
+    background-size: 125px 24px;
+  }
+
+
+
+  </style>
+  
+<script>
+
+</script>
+<body>
+<div id="xs_login_output" style="display: none"></div>
+
+<header>
+    <div id="xs_header_back" class="am-topbar am-topbar-inverse">
+        <nav >
+            <span id="logo" class="am-topbar-brand">
+                <a href="index.html" class="am-text-ir"></a>
+                <!-- <img src="" alt="logo">logo -->
+            </span>
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse-2'}" style="margin-top: 10px;">
+                <span class="am-sr-only">导航切换</span>
+                <span class="am-icon-bars"></span>
+            </button>
+            <div class="am-collapse am-topbar-collapse xs_text_center" id="doc-topbar-collapse-2">
+                <!-- 导航 style="display: none;"-->
+                <div class="xs_nav_content nav_transition transition  "  id="xs_nav_content">
+                    <ul class="am-nav am-nav-pills"  id="xs_header_nav">
+                        <li class="xs_current "><a href="javascript:void (0);">首页</a></li><!-- am-topbar-nav -->
+                        <li><a href="discover.html">发现</a></li>
+                        <li><a href="activity.html">活动</a></li>
+                        <li><a href="Popular_list.html">榜单</a></li>
+                        <li><a href="Popular_list_user.html">大佬</a></li>
+                        <input type="text" class="am-form-field am-input-sm xs_none_input" placeholder="搜索">
+                    </ul>
+                </div>
+                <!-- 搜索框style="display:none" placeholder="请搜索……"-->
+                <div class="xs_serch_input  transition " id="xs_serch_input"  >
+                    <form action="#" id="xs_header_serher">
+                        <span class="am-icon-close am-icon-sm xs_input_close" id="xs_input_close" onclick="clk();"></span><!-- onkeyup="inutpSelect();"-->
+                        <input type="text"  autofocus="autofocus" autocomplete="off"
+                           id="xs_search_input"   style="outline:none;"><!--onkeyup="inutpSelect();"-->
+                        <span class="am-icon-search am-icon-sm" id="xs_input_search"></span>
+                        <!--添加判断，如搜索框无值这调用clk()，有值跳转-->
+                        <div id="search-content" class="search-content">
+                            <div class="search-content-list">
+                                
+                            </div>
+                        </div>
+
+                        <!--<ul class="ama-dropdown-content">-->
+                            <!--<li class="am-dropdown-header">职务</li>-->
+                            <!--<li><a href="#">1. 产品</a></li>-->
+                            <!--<li class="am-active"><a href="#">2. 设计</a></li>-->
+                            <!--<li><a href="#">3. 开发</a></li>-->
+                            <!--<li class="am-disabled"><a href="#">4. 测试</a></li>-->
+                            <!--<li class="am-divider"></li>-->
+                            <!--<li><a href="#">5. 运维</a></li>-->
+                        <!--</ul>-->
+                    </form>
+                </div>
+                <!--<form class="am-topbar-form am-topbar-left am-form-inline" role="search">-->
+                    <!--<div class="am-form-group">-->
+                    <!--</div>-->
+                <!--</form>-->
+                <div class="am-topbar-right" id="xs_content_login_box">
+                    <div class="am-topbar-right">
+
+                        <div class="am-dropdown" id="xs_login_box" data-am-dropdown="{boundary: '.am-topbar'}"><!-- style="height: 55px;"-->
+                             <!-- 用户未登录显示 -->
+                            <!-- <ul class="unlogin" >
+                                <li>
+                                    <span class="am-icon-search am-icon-sm am-btn am-btn-sm xs_header_btn_style xs_search_icon" onclick="clk()"></span>
+                                    <a href="#" class=" am-btn xs_header_btn_style" id="xs_login_btn">登录</a>
+                                    <i></i>
+                                    <a href="#" class="am-btn  xs_header_btn_style" id="xs_reg_btn">注册</a>
+                                </li>
+                            </ul> -->
+                             <!-- 用户登录显示 -->
+                            <!--<ul class="logining">
+                                <li>
+                                    <span class="am-icon-search am-icon-sm am-btn am-btn-sm xs_header_btn_style xs_search_icon" onclick="clk()"></span>
+                                    <span class="am-icon-home am-icon-sm am-btn am-btn-sm xs_header_btn_style" id="xs_info_btn"></span>
+                                    <span class="xs_user_img">
+                                        <a href="#">
+                                            <img src="http://localhost:6992//upload/userImg/03.jpg" alt="头像">
+                                        </a>
+                                        <a href="#">退出</a></span>
+                                </li>
+                            </ul>  -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!-- <div style="height:500px;width:500px; background:#60aa97"></div> -->
+        </nav>
+    </div>
+<!-- <div style="height"500px;></div> -->
+    <div class="am-g am-g-fixed blog-fixed am-u-sm-centered  " id="xs_slides_box">
+        <div data-am-widget="slider" class="am-slider am-slider-b1" data-am-slider='{&quot;controlNav&quot;:false}' ><!--style="position: relative;z-index: 999;"-->
+            <ul class="am-slides">
+                <li><img src="i/b1.jpg" height="350" width="1434"/>
+                </li>
+                <li>
+                    <img src="images/banner_1.jpg" height="350" width="1380">
+
+                </li>
+                <li>
+                    <img src="images/banner_2.jpg" height="350" width="1380">
+                </li>
+                <!--<li>-->
+                    <!--<img src="assets/i/b1.jpg">-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <!-- 活动列表 -->
+        <div id="xs_acticity_list">
+            <ul class="am-avg-sm-5 am-thumbnails" id="xs_acticity_list_content">
+                <li><a href="#"><img class="am-thumbnail" src="images/test_1.jpg" title="2342334323" /></a></li>
+                <li><a href="#"><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/2017-1-19-1.png" /></a></li>
+                <li><a href="#"><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/2017-1-19-3.png" /></a></li>
+                <li><a href="#"><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/2017-1-19-4.png" /></a></li>
+                <li><a href="#"><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/2017-1-19-4.png" /></a></li>
+            </ul>
+        </div>
+
+    </div>
+</header>
+<div id="content">
+    <!-- data-am-smooth-scroll="{position: 691}"滚动定位 -->
+    <ul  data-am-smooth-scroll="{position: 640}"class="xs_content_nav " data-am-sticky>
+        <li class="xs_content_nav_mark xs_content_current"><a href="#">最新发布</a></li>
+        <li class="xs_content_nav_mark"><a href="#">赞数最多</a></li><!--点击出dom 锚点返回上层-->
+        <li class="xs_content_nav_mark"><a href="#">浏览最多</a></li>
+    </ul>
+    <div id="xs_content_menu">
+
+        <!--<span class="xs_content_menu_title ">aaa</span>-->
+        <!-- 下面的max-width控制一行有多少图 -->
+        <div class="am-g am-g-fixed blog-fixed blog-content" style="max-width: 1300px;">
+                <!--  am-figure 这个会class 会出现图片浏览器    -->
+            <figure data-am-widget="figure" class="am  am-figure-default "   data-am-figure="{  pureview: 'true' }">
+                <div id="container">
+                    <div data-am-scrollspy="{animation: 'fade', delay: 300}" class="xs_card_box">
+                        <div class="xs_card_img">
+                            <a href="https://www.baidu.com">
+                                <img class="xs_work_img" src="images/01.jpg">
+                            </a>
+                        </div>
+                        <div class="xs_card_info">
+                            <p class="xs_card_info_title">
+                                <a href="#">
+                                    这是文章的标题asdasdasdasdsda啊啊啊啊啊
+                                </a>
+                            </p>
+                            <p class="xs_card_info_type">前端-设计</p>
+                            <p class="xs_card_info_item">
+                                <span class="statistics-view" title="共24人气"><i class="am-icon-thumbs-o-up am-icon-fw"></i>24</span>
+                                <span class="statistics-comment" title="共0评论"><i class="am-icon-eye am-icon-fw"></i>0</span>
+                                <span class="statistics-tuijian" title="最新作品"> <a><i class="am-icon-tencent-weibo am-icon-fw"></i></a></span>
+                            </p>
+                        </div>
+                        <div class="xs_card_item">
+                            <span class="xs_card_user_info">
+                                <img src="images/01.jpg" alt="头像">
+                                <a href="#">
+                                        我是用户名我是用户名我是用户名我是用户名
+                                </a>
+                                <span class="works_time" title="审核时间，通过时间">时分秒</span>
+
+                                <!-- 放在用户名上显示出现用户信息 -->
+                                <div></div>
+                            </span>
+
+                        </div>
+                        
+                        <!-- <h3>Agfa</h3> -->
+                    </div>
+                    <div data-am-scrollspy="{animation: 'fade', delay: 300}" class="xs_card_box">
+                            <div class="xs_card_img">
+                                <a href="https://www.baidu.com">
+                                    <img class="xs_work_img" src="images/01.jpg">
+                                </a>
+                            </div>
+                            <div class="xs_card_info">
+                                <p class="xs_card_info_title">
+                                    <a href="#">
+                                        这是文章的标题asdasdasdasdsda啊啊啊啊啊
+                                    </a>
+                                </p>
+                                <p class="xs_card_info_type">前端-设计</p>
+                                <p class="xs_card_info_item">
+                                    <span class="statistics-view" title="共24人气">24</span>
+                                    <span class="statistics-comment" title="共0评论">0</span>
+                                    <span class="statistics-tuijian" title="共3推荐">3</span>
+                                </p>
+                            </div>
+                            <div class="xs_card_item">
+                                <span class="xs_card_user_info">
+                                    <img src="images/01.jpg" alt="头像">
+                                    <a href="#">
+                                            我是用户名我是用户名我是用户名我是用户名
+                                    </a>
+                                    <span class="works_time" title="审核时间，通过时间">时分秒</span>
+    
+                                    <!-- 放在用户名上显示出现用户信息 -->
+                                    <div></div>
+                                </span>
+    
+                            </div>
+                            
+                            <!-- <h3>Agfa</h3> -->
+                    </div>
+                    <div data-am-scrollspy="{animation: 'fade', delay: 300}" class="xs_card_box">
+                            <div class="xs_card_img">
+                                <a href="https://www.baidu.com">
+                                    <img class="xs_work_img" src="images/01.jpg">
+                                </a>
+                            </div>
+                            <div class="xs_card_info">
+                                <p class="xs_card_info_title">
+                                    <a href="#">
+                                        这是文章的标题asdasdasdasdsda啊啊啊啊啊
+                                    </a>
+                                </p>
+                                <p class="xs_card_info_type">前端-设计</p>
+                                <p class="xs_card_info_item">
+                                    <span class="statistics-view" title="共24人气">24</span>
+                                    <span class="statistics-comment" title="共0评论">0</span>
+                                    <span class="statistics-tuijian" title="共3推荐">3</span>
+                                </p>
+                            </div>
+                            <div class="xs_card_item">
+                                <span class="xs_card_user_info">
+                                    <img src="images/01.jpg" alt="头像">
+                                    <a href="#">
+                                            我是用户名我是用户名我是用户名我是用户名
+                                    </a>
+                                    <span class="works_time" title="审核时间，通过时间">时分秒</span>
+    
+                                    <!-- 放在用户名上显示出现用户信息 -->
+                                    <div></div>
+                                </span>
+    
+                            </div>
+                            
+                            <!-- <h3>Agfa</h3> -->
+                    </div>
+            
+                    <div data-am-scrollspy="{animation: 'fade', delay: 300}" class="xs_card_box">
+                            <div class="xs_card_img">
+                                <a href="https://www.baidu.com">
+                                    <img class="xs_work_img" src="images/01.jpg">
+                                </a>
+                            </div>
+                            <div class="xs_card_info">
+                                <p class="xs_card_info_title">
+                                    <a href="#">
+                                        这是文章的标题asdasdasdasdsda啊啊啊啊啊
+                                    </a>
+                                </p>
+                                <p class="xs_card_info_type">前端-设计</p>
+                                <p class="xs_card_info_item">
+                                    <span class="statistics-view" title="共24人气">24</span>
+                                    <span class="statistics-comment" title="共0评论">0</span>
+                                    <span class="statistics-tuijian" title="共3推荐">3</span>
+                                </p>
+                            </div>
+                            <div class="xs_card_item">
+                                <span class="xs_card_user_info">
+                                    <img src="images/01.jpg" alt="头像">
+                                    <a href="#">
+                                            我是用户名我是用户名我是用户名我是用户名
+                                    </a>
+                                    <span class="works_time" title="审核时间，通过时间">时分秒</span>
+    
+                                    <!-- 放在用户名上显示出现用户信息 -->
+                                    <div></div>
+                                </span>
+    
+                            </div>
+                            
+                            <!-- <h3>Agfa</h3> -->
+                    </div>
+                    <div data-am-scrollspy="{animation: 'fade', delay: 300}" class="xs_card_box">
+                        <div class="xs_card_img">
+                            <a href="https://www.baidu.com">
+                                <img class="xs_work_img" src="images/01.jpg">
+                            </a>
+                        </div>
+                        <div class="xs_card_info">
+                            <p class="xs_card_info_title">
+                                <a href="#">
+                                    这是文章的标题asdasdasdasdsda啊啊啊啊啊
+                                </a>
+                            </p>
+                            <p class="xs_card_info_type">前端-设计</p>
+                            <p class="xs_card_info_item">
+                                <span class="statistics-view" title="共24人气"><i class="am-icon-thumbs-o-up am-icon-fw"></i>24</span>
+                                <span class="statistics-comment" title="共0评论"><i class="am-icon-eye am-icon-fw"></i>0</span>
+                                <span class="statistics-tuijian" title="最新作品"> <a><i class="am-icon-tencent-weibo am-icon-fw"></i></a></span>
+                            </p>
+                        </div>
+                        <div class="xs_card_item">
+                            <span class="xs_card_user_info">
+                                <img src="images/01.jpg" alt="头像">
+                                <a href="#">
+                                        我是用户名我是用户名我是用户名我是用户名
+                                </a>
+                                <span class="works_time" title="审核时间，通过时间">时分秒</span>
+
+                                <!-- 放在用户名上显示出现用户信息 -->
+                                <div></div>
+                            </span>
+
+                        </div>
+                        
+                        <!-- <h3>Agfa</h3> -->
+                    </div>
+                    <div data-am-scrollspy="{animation: 'fade', delay: 300}" class="xs_card_box">
+                            <div class="xs_card_img">
+                                <a href="https://www.baidu.com">
+                                    <img class="xs_work_img" src="images/01.jpg">
+                                </a>
+                            </div>
+                            <div class="xs_card_info">
+                                <p class="xs_card_info_title">
+                                    <a href="#">
+                                        这是文章的标题asdasdasdasdsda啊啊啊啊啊
+                                    </a>
+                                </p>
+                                <p class="xs_card_info_type">前端-设计</p>
+                                <p class="xs_card_info_item">
+                                    <span class="statistics-view" title="共24人气">24</span>
+                                    <span class="statistics-comment" title="共0评论">0</span>
+                                    <span class="statistics-tuijian" title="共3推荐">3</span>
+                                </p>
+                            </div>
+                            <div class="xs_card_item">
+                                <span class="xs_card_user_info">
+                                    <img src="images/01.jpg" alt="头像">
+                                    <a href="#">
+                                            我是用户名我是用户名我是用户名我是用户名
+                                    </a>
+                                    <span class="works_time" title="审核时间，通过时间">时分秒</span>
+    
+                                    <!-- 放在用户名上显示出现用户信息 -->
+                                    <div></div>
+                                </span>
+    
+                            </div>
+                            
+                            <!-- <h3>Agfa</h3> -->
+                    </div>
+                    <div data-am-scrollspy="{animation: 'fade', delay: 300}" class="xs_card_box">
+                            <div class="xs_card_img">
+                                <a href="https://www.baidu.com">
+                                    <img class="xs_work_img" src="images/01.jpg">
+                                </a>
+                            </div>
+                            <div class="xs_card_info">
+                                <p class="xs_card_info_title">
+                                    <a href="#">
+                                        这是文章的标题asdasdasdasdsda啊啊啊啊啊
+                                    </a>
+                                </p>
+                                <p class="xs_card_info_type">前端-设计</p>
+                                <p class="xs_card_info_item">
+                                    <span class="statistics-view" title="共24人气">24</span>
+                                    <span class="statistics-comment" title="共0评论">0</span>
+                                    <span class="statistics-tuijian" title="共3推荐">3</span>
+                                </p>
+                            </div>
+                            <div class="xs_card_item">
+                                <span class="xs_card_user_info">
+                                    <img src="images/01.jpg" alt="头像">
+                                    <a href="#">
+                                            我是用户名我是用户名我是用户名我是用户名
+                                    </a>
+                                    <span class="works_time" title="审核时间，通过时间">时分秒</span>
+    
+                                    <!-- 放在用户名上显示出现用户信息 -->
+                                    <div></div>
+                                </span>
+    
+                            </div>
+                            
+                            <!-- <h3>Agfa</h3> -->
+                    </div>
+            
+                    <div data-am-scrollspy="{animation: 'fade', delay: 300}" class="xs_card_box">
+                            <div class="xs_card_img">
+                                <a href="https://www.baidu.com">
+                                    <img class="xs_work_img" src="images/01.jpg">
+                                </a>
+                            </div>
+                            <div class="xs_card_info">
+                                <p class="xs_card_info_title">
+                                    <a href="#">
+                                        这是文章的标题asdasdasdasdsda啊啊啊啊啊
+                                    </a>
+                                </p>
+                                <p class="xs_card_info_type">前端-设计</p>
+                                <p class="xs_card_info_item">
+                                    <span class="statistics-view" title="共24人气">24</span>
+                                    <span class="statistics-comment" title="共0评论">0</span>
+                                    <span class="statistics-tuijian" title="共3推荐">3</span>
+                                </p>
+                            </div>
+                            <div class="xs_card_item">
+                                <span class="xs_card_user_info">
+                                    <img src="images/01.jpg" alt="头像">
+                                    <a href="#">
+                                            我是用户名我是用户名我是用户名我是用户名
+                                    </a>
+                                    <span class="works_time" title="审核时间，通过时间">时分秒</span>
+    
+                                    <!-- 放在用户名上显示出现用户信息 -->
+                                    <div></div>
+                                </span>
+    
+                            </div>
+                    </div>
+                </div>
+            </figure>
+        </div>
+    </div>
+    <div id="xs_content_img_list" >
+
+
+    </div>
+</div>
+<footer>
+    <div class="am-g   blog-fixed">
+        <div class="xs_bottom_logo"></div>
+        <div class="xs_bottom_icon"><!--  xs_border_style-->
+            <p>
+                <a href="javascript:;">
+                    <span class="am-icon-qq am-icon-fw xs_bottom_icon_style xs_qq_ewm">
+                        <i class="xs_qqicon_hover"></i>
+                    </span>
+                </a>
+                <a href="javascript:;">
+                    <span class="am-icon-weixin am-icon-fw xs_bottom_icon_style xs_weixin_ewm">
+                        <i class="xs_wxicon_hover"></i>
+                </span></a>
+            </p>
+        </div>
+        <!-- <button onclick="asd();">123</button> -->
+
+    </div>    
+    <div class="blog-text-center font_size">浙ICP备18051954号&nbsp;浙江省杭州市·Purple andel</div>
+    <div class="blog-text-center font_size" style="margin-top: 10px">Copyright ©2018 Purple dandel. By Sani</div>
+        
+<!-- jjj
+<BUTTON onclick="movieSearch();"></BUTTON>
+<BUTTON onclick="clk();">123</BUTTON> -->
+</footer>
+<!-- 回到顶部功能 -->
+<div data-am-widget="gotop" class="am-gotop am-gotop-fixed xs_gotop "  >
+    <a href="#top" title="回到顶部">
+        <span class="am-gotop-title">回到顶部</span>
+        <i class="am-icon-btn am-icon-rocket amdoc-totop xs_gotop_icon"></i>
+    </a>
+    <!--am-gotop-icon am-icon-chevron-up-->
+</div>
+<!-- 用于登录页面是输出 -->
+    <!-- <div class="xs_user_login">    </div>
+
+    <div class="xs_user_login_box am-panel am-panel-default">
+    <a href="#" class="am-close xs_login_close">&times;</a>
+    <ul class="xs_user_login_select">
+        <li class="xs_login_mark xs_content_current"><a href="#">密码登录</a></li>
+        <li class="xs_login_mark"><a href="#">手机登录</a></li>
+    </ul>
+
+        <div class="username">
+            <input type="text" id="xs_username" placeholder="用户名/手机号" autocomplete="off" class="xs_login_style">
+        </div>
+        <div class="password  dsbl">
+            <input type="password" id="xs_password" placeholder="请输入密码" autocomplete="off" class="xs_login_style">
+        </div>
+        <div class="xs_login_display dsno">
+            <div id="wrapper" >
+                <div id="drag">
+                    <div class="drag_bg"></div>
+                    <div class="drag_text slidetounlock" onselectstart="return false;" unselectable="on">
+                        请按住滑块，拖动到最右边
+                    </div>
+                    <div class="handler handler_bg am-icon-angle-double-right"></div>
+                </div>
+            </div>
+            <div class="l-sms-code js-ipt-h "> 
+                <input type="text" autocomplete="off" class="text-style ipt-short-current xs_sms_input xs_login_style " id="sms-cd">
+                <input type="button" class="xs_sms_btn xs_login_btn sms-cd-btn btn-default-main" id="sms-send-cd-btn" value="发送验证码">
+                <span class="n-receive-cd js-no-ver-code">没收到验证码？</span>
+            </div>
+        </div>
+        <button type="button"  class=" xs_login_btn am-btn am-btn-primary btn-loading-example" style="outline:none;">登&nbsp;&nbsp;录</button>
+        
+        <div class="xs_auto_login">
+            <label class="auto-login-cd">
+                <input type="checkbox" name="autolog" id="auto-login-cd" checked="" class="auto-login-cd ">
+                下次自动登录
+                <div class="show-box"></div>
+            </label>
+            <div class="login-links">
+                <a href="javascript:;" target="_blank" class="">忘记密码</a>
+                <span>|</span>
+                <a href="javascript:;" target="_blank" class="">注册</a>
+            </div>
+        </div>
+    </div>
+ --><!--disabled-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js\jquery.cookie.js"></script>
+    <!--<![endif]-->
+    <!--[if lte IE 8 ]>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+    <script src="js/amazeui.ie8polyfill.min.js"></script>
+    <![endif]-->
+    <script src="js/amazeui.min.js"></script>
+    <script src="js/pinto.min.js"></script>
+    <script src="js/img.js"></script>
+    <script src="js/outList.js"></script>
+    <script src="js/drag.js"></script>
+<script src="js/selectkey.js"></script>
+<script  src="js/login.js"></script>
+<script  src="js/commonJS.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+    outLoginBox();
+    loginBox();
+
+        //loginStyle();
+        //login_btn();
+        //close_login();
+        //block_login();
+    outWorksList();
+    outActivityList(1,0,0,0,0);
+    // $('#container').pinto();
+    //登录模块效果
+    $(".xs_login_mark").on('click',function(){
+        $(".xs_login_mark").removeClass('xs_content_current');
+        $(this).addClass('xs_content_current');
+        if($('.xs_login_display').hasClass('dsno')){
+            $('.xs_login_display').removeClass('dsno');
+            $(".xs_login_display").addClass('dsbl');
+        }
+        else if($('.xs_login_display').hasClass('dsbl')){
+            $('.xs_login_display').removeClass('dsbl');
+            $(".xs_login_display").addClass('dsno');
+        }
+        if($('.password').hasClass('dsbl')){//手机登录
+            $('.password').removeClass('dsbl');
+            $(".password").addClass('dsno');//不显示
+            $("#xs_password").val("");
+            $('#login_btn').attr({"disabled":"disabled"});//禁用
+            $('.xs_error_tips').addClass('dsno');
+        }else{
+            $('.password').removeClass('dsno');//密码登录
+            $("#xs_password").val("");
+            $(".password").addClass('dsbl');//显示
+            $('.xs_error_tips').addClass('dsno');
+            $('#login_btn').attr({"disabled":"disabled"});//禁用
+        }
+        $('#drag').drag();//滑动要放在登录模块是否显示之后
+    });
+    $('.btn-loading-example').click(function () {
+        var loginState=$(".xs_content_current").attr("id");
+        var str=loginState.lastIndexOf("\_");
+        var newState=loginState.substring(str+1,loginState.length);
+        var login_btn=$('#login_btn');
+        if(newState==0){//用户密码
+            var userName=$.trim($('#xs_username').val());//用户名或手机
+            var password=$.trim($('#xs_password').val());//用户密码
+            if(userName!=""&&password!=""){
+                var $btn = $(this)
+                $btn.button('loading');
+                setTimeout(function(){
+                    $btn.button('reset');//
+                }, 500);
+                namePwd_login(userName,password);
+            }else{
+                $('.xs_errpr_text ').text("所填值不能为空");
+                $('.xs_error_tips').removeClass('dsno');
+                login_btn.attr({"disabled":"disabled"});
+                return;
+            }
+        }
+        if(newState==1){//手机验证
+            var userName=$.trim($('#xs_username').val());//用户名或手机
+            var smsCd=$.trim($('#sms-cd').val());//验证码
+            if(userName!=""&&smsCd!=""){//手机登录
+                var $btn = $(this);
+                $btn.button('loading');
+                setTimeout(function(){
+                    $btn.button('reset');
+                }, 500);
+                phone_login(userName,smsCd);
+            }else{
+                $('.xs_errpr_text ').text("所填值不能为空");
+                $('.xs_error_tips').removeClass('dsno');
+                login_btn.attr({"disabled":"disabled"});
+                return;
+            }
+        }
+    });
+
+};
+   //内容输出类型选择，样式修改。
+    $(".xs_content_nav_mark").click(function(){ 
+        $(".xs_content_nav_mark").removeClass('xs_content_current');
+        $(this).addClass('xs_content_current');
+        outWorksList($(this).index());
+    });
+    //搜索框查询
+    // function inutpSelect() {
+    //     var seleName=$('#xs_search_input').val();
+    //     outSelectList(seleName);
+    // }
+
+
+//     function asd(){
+//         window.history.back(-1);
+//     }
+
+</script>    
+</body>
+</html>

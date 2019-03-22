@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+</head>
+　　　<script> 
+    　　　function checkLeave(){ 
+    　　　　alert("欢迎下次再来！"); 
+    　　　} 
+    　　　</script> 
+<body  onunload="checkLeave()">
+    111
+</body> 
+
+
+
+<script>
+    window.onbeforeunload=function (){ 
+        alert("===onbeforeunload==="); 
+        if(event.clientX>document.body.clientWidth && event.clientY < 0 || event.altKey){ 
+            alert("你关闭了浏览器"); 
+        }else{ 
+            alert("你正在刷新页面"); 
+            } 
+        } 
+    </script>
+</html>

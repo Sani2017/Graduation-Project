@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<style type="text/css">
+    /*demo styles*/
+    table{margin:0 auto;border-collapse:collapse; }
+    td, th{ width:10%; font-size:14px; padding:10px 0; text-align:center;border:1px solid #ddd; }
+    th {background-color:#f4f4f4;}
+    /* input */
+    td.input{ position:relative; }
+    td input{ width:100%; border:1px solid #CF5C74; background:#F90; border-radius:4px; display:block; position:absolute; text-align:center; font-size:14px; left:0; top:0; padding:11px 0; margin:-1px 0 0 -1px; }
+    td.hover{background:#eee;}
+</style>
+<script src="assets/js/jquery.min.js"></script>
+<script>
+    $(function(){
+        $('.text').click(function(){
+            if(!$(this).is('.input')){
+                $(this).addClass('input').html('<input type="text" value="'+ $(this).text() +'" />').find('input').focus().blur(function(){
+                    var thisid = $(this).parent().siblings("th:eq(0)").text();
+                    var thisvalue=$(this).val();
+                    var thisclass = $(this).parent().attr("class");
+
+                    /*
+                    //ajax将修改后的数据提交到后台
+                    $.ajax({
+                     type: 'POST',
+                     url: 'update.php',
+                     data: "thisid="+thisid+"&thisclass="+thisclass+"&thisvalue="+thisvalue
+                    });
+                    */
+                    $(this).parent().removeClass('input').html($(this).val() || 0);
+
+                });
+            }
+        }).hover(function(){
+            $(this).addClass('hover');
+        },function(){
+            $(this).removeClass('hover');
+        });
+
+    });
+</script>
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+    <thead>
+    <tr>
+
+        <th scope="col">列1</th>
+        <th scope="col">第二列</th>
+        <th scope="col">其他</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="content"></td>
+        <td class="text">测</td>
+        <td class="position">0</td>
+    </tr>
+    <tr>
+
+        <td class="content"></td>
+        <td class="text">测</td>
+        <td class="position">0</td>
+    </tr>
+    <tr>
+        <td class="content">测</td>
+        <td class="text">%u53D</td>
+        <td class="position">0</td>
+    </tr>
+    <tr>
+        <td class="content">测</td>
+        <td class="text">%u624</td>
+        <td class="position">1110</td>
+    </tr>
+    <tr>
+        <td class="content">欢</td>
+        <td class="text"></td>
+        <td class="position">0</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

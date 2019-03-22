@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作品上传</title>
+    <link rel="stylesheet" href="css/amazeui.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/mycss.css"/>
+    <link rel="stylesheet" href="css/uploadWorkCss.css">
+</head>
+<!--https://www.cnblogs.com/mr-amazing/p/5674188.html-->
+<style type="text/css">
+    .am-topbar .am-text-ir {
+        display: block;
+        margin-right: 10px;
+        height: 55px;
+        width: 140px;
+        background: url(images/logo.png) no-repeat left center;
+        -webkit-background-size: 125px 24px;
+        background-size: 125px 24px;
+    }
+</style>
+<script>
+</script>
+<body>
+<div id="xs_login_output" style="display: none"></div>
+
+<header>
+    <div id="xs_header_back" class="am-topbar am-topbar-inverse">
+        <nav >
+            <span id="logo" class="am-topbar-brand">
+                <a href="index.html" class="am-text-ir"></a>
+                <!-- <img src="" alt="logo">logo -->
+            </span>
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse-2'}" style="margin-top: 10px;">
+                <span class="am-sr-only">导航切换</span>
+                <span class="am-icon-bars"></span>
+            </button>
+            <div class="am-collapse am-topbar-collapse xs_text_center" id="doc-topbar-collapse-2">
+                <!-- 导航 style="display: none;"-->
+                <div class="xs_nav_content nav_transition transition  "  id="xs_nav_content">
+                    <ul class="am-nav am-nav-pills"  id="xs_header_nav">
+                        <li><a href="index.html">首页</a></li><!-- am-topbar-nav -->
+                        <li><a href="discover.html">发现</a></li>
+                        <li><a href="activity.html">活动</a></li>
+                        <li><a href="Popular_list.html">榜单</a></li>
+                        <li><a href="Popular_list_user.html">大佬</a></li>
+                        <input type="text" class="am-form-field am-input-sm xs_none_input" placeholder="搜索">
+                    </ul>
+                </div>
+                <!-- 搜索框style="display:none" placeholder="请搜索……"-->
+                <div class="xs_serch_input  transition " id="xs_serch_input"  >
+                    <form action="#" id="xs_header_serher">
+                        <span class="am-icon-close am-icon-sm xs_input_close" id="xs_input_close" onclick="clk();"></span><!-- onkeyup="inutpSelect();"-->
+                        <input type="text"  autofocus="autofocus" autocomplete="off"
+                               id="xs_search_input"   style="outline:none;"><!--onkeyup="inutpSelect();"-->
+                        <span class="am-icon-search am-icon-sm" id="xs_input_search"></span>
+                        <!--添加判断，如搜索框无值这调用clk()，有值跳转-->
+                        <div id="search-content" class="search-content">
+                            <div class="search-content-list">
+                                 
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="am-topbar-right" id="xs_content_login_box">
+                    <div class="am-topbar-right">
+
+                        <div class="am-dropdown" id="xs_login_box" data-am-dropdown="{boundary: '.am-topbar'}"><!-- style="height: 55px;"-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!--<div>-->
+        <!--<div class="" id="xs_slides_box" style="margin: 0 auto;">-->
+            <!--<div class="xs_top_img">-->
+                <!--<img src="images/top_1.jpg" width="100%" height="100%" alt="" title="" border="0">-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+<div id="content">
+    <!-- data-am-smooth-scroll="{position: 691}"滚动定位 xstent_current-->
+<!--静态基本完成却后台-->
+    <div id="xs_content_menu">
+        <!-- 下面的max-width控制一行有多少图 -->
+        <div class="am-g am-g-fixed blog-fixed blog-content" style="max-width: 900px;">
+            <!--  am-figure 这个会class 会出现图片浏览器    -->
+            <figure data-am-widget="figure" class="am  am-figure-default " style="text-align: left"  data-am-figure="{  pureview: 'true' }">
+                <div id="uploadList" class="middle_box">
+                    <h2 class="middle_title">作品上传</h2>
+                </div>
+                <div class="upload_info middle_box">
+                    <div class="upload_info_title">
+                        作品信息
+                    </div>
+                    <div class="upload_info_content">
+                        <div class="workName">
+                            <div class="worktext_box">
+                                <i class="redwarn"></i>
+                                <input type="text" class="workName_text" id="workName" placeholder="请输入作品名称" maxlength="20">
+
+                                <span class="error error_text dsno">1213</span>
+                            </div>
+                        </div>
+                        <div class="workSort">
+                            <div class="workSort_box">
+                                <i class="redwarn"></i>
+                                <select class="workName_text workSort outputWorkSort" id="selectSort">
+                                    <option value="volvo1">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="opel">Opel</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+                                <span class="error error_text">1213</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="upload_info middle_box">
+                    <div class="upload_info_title">
+                        <span>作品内容</span>
+                        <span class="upload-tiptxt">注：不要在图片上放置商业推广信息。</span>
+                    </div>
+                    <div class="upload_info_content">
+                        <span class="error error_text error_work_text dsno" style="text-align: left">1213</span>
+                        <br style="clear:both">
+                        <div id="edit"></div>
+                        <button onclick="a();">lll</button>
+                    </div>
+                </div>
+                <div class="upload_info middle_box">
+                    <div class="upload_info_title">
+                        <span>封面上传</span>
+                        <span class="upload-tiptxt">注：若无封面则使用默认图片，不要在图片上放置商业推广信息。</span>
+                    </div>
+
+                    <div class="upload_info_content">
+                        <div class="am-form-group am-form-file">
+                            <img id="img_preview" data-src="" src="" data-holder-rendered="true"
+                                 style="width: 100px; display: block;">
+                            <button type="button" class="am-btn am-btn-default am-btn-sm">
+                                <i class="am-icon-cloud-upload"></i> 选择要上传的封面</button>
+                            <input type="file" multiple id="imgFile" onchange="checkFileExt(this.value);" >
+                        </div>
+                    </div>
+                </div>
+                <div class="upload_info middle_box">
+                    <div class="upload_info_title">
+                        <span>附件上传</span>
+                        <span class="upload-tiptxt">注：附件并非必填项。</span>
+                    </div>
+
+                    <div class="upload_info_content">
+                        <div class="am-form-group am-form-file">
+                            <button type="button" class="am-btn am-btn-default am-btn-sm">
+                                <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                                <input type="file" multiple id="workFile">
+                        </div>
+                    </div>
+                </div>
+            </figure>
+            <button class="upload">上传</button>
+            <div id="page3"><!--分页页码的显示-->
+
+            </div>
+        </div>
+
+        <div id="tips3" class="dsno"></div>
+        <div id="allPage"></div>
+    </div>
+    <div id="xs_content_img_list" >
+    </div>
+
+
+    <script>
+    </script>
+</div>
+<footer>
+    <div class="am-g   blog-fixed">
+        <div class="xs_bottom_logo"></div>
+        <div class="xs_bottom_icon"><!--  xs_border_style upload-->
+            <p>
+                <a href="javacript:void(0);">
+                    <span class="am-icon-qq am-icon-fw xs_bottom_icon_style xs_qq_ewm">
+                        <i class="xs_qqicon_hover"></i>
+                    </span>
+                </a>
+                <a href="javacript:void(0);">
+                    <span class="am-icon-weixin am-icon-fw xs_bottom_icon_style xs_weixin_ewm">
+                        <i class="xs_wxicon_hover"></i>
+                </span></a>
+            </p>
+        </div>
+    </div>
+    <div class="blog-text-center">&copy;2018 Purple dandel. Licensed under MIT license. Made with love By LWXYFER</div>
+</footer>
+<!-- 回到顶部功能 -->
+<div data-am-widget="gotop" class="am-gotop am-gotop-fixed xs_gotop">
+    <a href="#top" title="回到顶部">
+        <span class="am-gotop-title">回到顶部</span>
+        <i class="am-icon-btn am-icon-rocket amdoc-totop xs_gotop_icon"></i>
+    </a>
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/jquery.min.js"></script>
+<script src="js\jquery.cookie.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="js/amazeui.min.js"></script>
+<script src="js/pinto.min.js"></script>
+<script src="js/img.js"></script>
+<script src="js/outList.js"></script>
+<script src="js/drag.js"></script>
+<script src="js/selectkey.js"></script>
+<script  src="js/login.js"></script>
+<script  src="js/commonJS.js"></script>
+<script src="js/wangEditor.js"></script>
+<!-- 此处是每个页面均会使用到的js -->
+<script type="text/javascript" src="js/amazeui.page.js"></script>
+
+<script type="text/javascript">
+    //获取url传值
+    var userIdValueUrl= GetQueryStringByUrl("userId");
+    var sortIdValueUrl= GetQueryStringByUrl("sortId");
+    if(sortIdValueUrl==null){
+        sortIdValueUrl=0;
+    }
+    //登录时保存的Id
+    var userIdlocal=localStorage.getItem("userId");
+    if(userIdValueUrl==null || userIdValueUrl!==userIdlocal){
+        window.location.href="index.html";
+        window.history.back(-1);
+    }else{
+        var localState= localStorage.getItem("loginState");
+        var userToken="";
+        var userInfo="";
+        //token验证
+            //判断用户是否勾选自动登录
+        if(localState==1){//勾选
+            userToken=localStorage.getItem("Token");
+            userInfo=localStorage.getItem("userInfo");
+        }
+        else if(cookState!=null && localState==2){
+            userToken=$.cookie("Token");
+            userInfo=$.cookie("userInfo");
+        }
+        $.ajax({
+            url: "http://localhost:6992/api/LoginToken/token",
+            type: "post",
+            async: true,
+            //data: _json, //不能直接写成 {id:"123",code:"tomcat"}
+            //dataType: "json",
+            // contentType: "charset=utf-8",  ,"cat":Search
+            data:{UserName:""+userInfo+"",Token:""+userToken+""},
+            //cache: false,
+            success: function (returndata) {
+                if(returndata.suc==true){
+                    $.ajax({//判斷用戶是否可用
+                        url: "http://localhost:6992/api/UserInfo/UserState",
+                        type: "get",
+                        async: true,
+                        data:{id:""+userIdlocal+""},
+                        success: function (returndata) {
+                            if(returndata==true){
+                                outSort(3);
+                            }else {
+                                alert("用戶已經禁用。");
+                                window.location.href="index.html";
+                            }
+                        },
+                        error: function (returndata) { alert(returndata+"错误"); }
+                    });
+                }else {
+                    alert(returndata.mes);
+                    window.location.href="index.html";
+                    window.history.back(-1);
+                }
+            },
+            error: function (returndata) { alert(returndata+"错误"); }
+        });
+    //作品类型输出
+    }
+    //富文本相关js
+    var E = window.wangEditor;
+    var editor = new E('#edit');
+    // editor.config.emotionsShow = 'value';
+    // 自定义菜单配置
+    editor.customConfig.menus = [
+        'head',  // 标题
+        'bold',  // 粗体
+        'fontSize',  // 字号
+        'fontName',  // 字体
+        'italic',  // 斜体
+        'underline',  // 下划线
+        'strikeThrough',  // 删除线
+        'foreColor',  // 文字颜色
+        'backColor',  // 背景颜色
+        'link',  // 插入链接
+        'list',  // 列表
+        'justify',  // 对齐方式
+        'quote',  // 引用
+        'emoticon',  // 表情
+        'image',  // 插入图片
+        'table',  // 表格
+        //'video',  // 插入视频
+        'code',  // 插入代码
+        'undo',  // 撤销
+        'redo'  // 重复
+    ];
+    // 配置服务器端地址
+    editor.customConfig.uploadImgServer = 'http://localhost:6992/api/Works/ImgUpload';
+
+    editor.customConfig.uploadImgHooks = {
+        before: function (xhr, editor, files) {
+            // 图片上传之前触发
+            // xhr 是 XMLHttpRequst 对象，editor 是编辑器对象，files 是选择的图片文件
+
+            // 如果返回的结果是 {prevent: true, msg: 'xxxx'} 则表示用户放弃上传
+            // return {
+            //     prevent: true,
+            //     msg: '放弃上传'
+            // }
+        },
+        success: function (xhr, editor, result) {
+            // 图片上传并返回结果，图片插入成功之后触发
+            // xhr 是 XMLHttpRequst 对象，editor 是编辑器对象，result 是服务器端返回的结果
+        },
+        fail: function (xhr, editor, result) {
+            const data=JSON.parse(result);
+            alert(data.msg);
+            // 图片上传并返回结果，但图片插入错误时触发
+            // xhr 是 XMLHttpRequst 对象，editor 是编辑器对象，result 是服务器端返回的结果
+        },
+        error: function (xhr, editor) {
+            // 图片上传出错时触发
+            // xhr 是 XMLHttpRequst 对象，editor 是编辑器对象
+        },
+        timeout: function (xhr, editor) {
+            // 图片上传超时时触发
+            // xhr 是 XMLHttpRequst 对象，editor 是编辑器对象
+        },
+
+        // 如果服务器端返回的不是 {errno:0, data: [...]} 这种格式，可使用该配置
+        // （但是，服务器端返回的必须是一个 JSON 格式字符串！！！否则会报错）
+        customInsert: function (insertImg, result, editor) {
+            // 图片上传并返回结果，自定义插入图片的事件（而不是编辑器自动插入图片！！！）
+            // insertImg 是插入图片的函数，editor 是编辑器对象，result 是服务器端返回的结果
+
+            // 举例：假如上传图片成功后，服务器端返回的是 {url:'....'} 这种格式，即可这样插入图片：
+            var url = result.data
+            insertImg(url)
+
+            // result 必须是一个 JSON 格式字符串！！！否则报错
+        }
+    };
+    function a(){
+        alert(editor.txt.html());
+    }
+
+    editor.create();
+    //富文本js结束
+
+    //上传图片选择文件改变后刷新预览图
+    $("#imgFile").change(function (e) {
+        //获取目标文件
+        var file = e.target.files || e.dataTransfer.files;
+        //如果目标文件存在
+        if (file) {
+            //定义一个文件阅读器
+            var reader = new FileReader();
+            //文件装载后将其显示在图片预览里
+            reader.onload = function () {
+                $("#img_preview").attr("src", this.result);
+            }
+            //装载文件
+            reader.readAsDataURL(file[0]);
+        }
+    });
+    //渲染后事件绑定
+    $(function () {//作品标题
+        $("#workName").blur(function () {
+            var workTtle=$("#workName").val();
+            if(workTtle==null|| workTtle==""){
+                $(".error_text").removeClass("dsno").text("必填项");
+                return false;
+            }else {
+                $(".error_text").addClass("dsno").text("必填项");
+            }
+        });
+        $(".w-e-text").blur(function () {
+            var worktext= editor.txt.text();
+            if(worktext==""||worktext==null){
+                //$(".error_work_text");
+                $(".error_work_text").removeClass("dsno").text("必填项");
+                return false;
+            }
+        });
+        $(document).on('click', '.upload', function() {
+
+        // $(".").click(function () {
+            var fileM_work=document.querySelector("#workFile");
+            var fileM_img=document.querySelector("#imgFile");
+            var fileInput_work = $('#workFile').get(0).files[0];
+            var fileInput_img = $('#imgFile').get(0).files[0];
+
+            var relativePath_work="";
+            var relativePath_img="";
+            //增加文件为空判断
+            //作品附件
+            if(fileInput_work!=null){
+                //获取文件对象，files是文件选取控件的属性，存储的是文件选取控件选取的文件对象，类型是一个数组
+                var fileObj_work = fileM_work.files[0];
+                //创建formdata对象，formData用来存储表单的数据，表单数据时以键值对形式存储的。
+                var formData_work = new FormData();
+                formData_work.append('file', fileObj_work);
+                $.ajax({
+                    url: "http://localhost:6992/api/Works/zipFileUpload",
+                    type: "post",
+                    dataType: "json",
+                    data: formData_work,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (returndata) {
+                        if(returndata.errno===1){
+                            alert(returndata.msg);
+                        }else {
+                            relativePath_work=returndata.relativePath;//相对路径
+                        }
+                    },
+                    error: function (returndata) { alert(returndata+"错误"); }
+                });
+            }else {
+                relativePath_work=null;
+            }
+            //作品封面
+            if(fileInput_img!=null){
+                var fileObj_img = fileM_img.files[0];
+                //创建formdata对象，formData用来存储表单的数据，表单数据时以键值对形式存储的。
+                var formData_img = new FormData();
+                formData_img.append('file', fileObj_img);
+                $.ajax({
+                    url: "http://localhost:6992/api/Works/ImgUpload",
+                    type: "post",
+                    dataType: "json",
+                    data: formData_img,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (returndata) {
+                        if(returndata.errno===1){
+                            alert(returndata.msg);
+                        }else {
+                            relativePath_img=returndata.relativePath;//相对路径
+                        }
+                    },
+                    error: function (returndata) { alert(returndata+"错误"); }
+                });
+            }else {
+                relativePath_img="/upload/userImg/default.png";
+            }
+
+            var workTtle=$("#workName").val();//作品标题
+            var options=$("#selectSort option:selected");//获取类别选中的项
+
+            var optionVal=options.val(); //拿到选中项的值
+
+            var Editor=editor.txt.html();//富文本，文章主要内容html标签
+            var editorStr1=Editor.replace(/<p><img/g, '<img');
+            var nowEditor=editorStr1.replace(/"><\/p>/g, '">');//去除img外的p
+
+            var worktext= editor.txt.text();//富文本，文章主要内容文本
+            if(workTtle==""||workTtle==null){//标题
+                $(".error_text").removeClass("dsno").text("必填项");
+                alert("内容不能为空")
+                return false;
+            }
+            if(worktext==""||worktext==null){//内容
+                $(".error_work_text").removeClass("dsno").text("必填项");
+                alert("内容不能为空")
+                return false;
+            }////JSON.stringify(
+            $.ajax({
+                url: "http://localhost:6992/api/Works/AddWorksInfo",
+                type: "post",
+                //dataType: "json",
+                data: {
+                    WorkImg:""+relativePath_img+"",
+                    Title:""+workTtle+"",
+                    Content:""+nowEditor+"",
+                    FileAddress:""+relativePath_work+"",
+                    ActivityId:""+sortIdValueUrl+"",
+                    AuthorId:""+userIdValueUrl+"",
+                    Sort:""+optionVal+"",
+                },
+                //async: false,//不要加，接口会报错，拒绝访问
+                //cache: false,
+                //contentType: 'application/json',
+               // processData: false,
+                success: function (returndata) {
+                    if(returndata.suc===false){
+                        alert(returndata.mes);
+                    }else {
+                        window.location.href="User_personal.html?userId="+userIdValueUrl;
+                    }
+                },
+                error: function (returndata) { alert(returndata.mes+"错误"); }
+            });
+        })
+
+    });
+    //判断封面合法性
+    function checkFileExt(filename)
+    {
+        var flag = false; //状态
+        var arr = ["jpg","png","gif"];
+        //取出上传文件的扩展名
+        var index = filename.lastIndexOf(".");
+        var ext = filename.substr(index+1);
+        //循环比较
+        for(var i=0;i<arr.length;i++)
+        {
+            if(ext == arr[i])
+            {
+                flag = true; //一旦找到合适的，立即退出循环
+                break;
+            }
+        }
+        //条件判断
+        if(flag)
+        {
+            alert("文件名合法");
+        }else
+        {
+            alert("文件名不合法");
+        }
+    }
+    //后加载js
+    window.onload = function () {
+        outLoginBox();//输出登录dom
+        loginBox();//输出header登录状态
+        //登录模块效果
+        $(".xs_login_mark").on('click',function(){
+            $(".xs_login_mark").removeClass('xs_content_current');
+            $(this).addClass('xs_content_current');
+            if($('.xs_login_display').hasClass('dsno')){
+                $('.xs_login_display').removeClass('dsno');
+                $(".xs_login_display").addClass('dsbl');
+            }
+            else if($('.xs_login_display').hasClass('dsbl')){
+                $('.xs_login_display').removeClass('dsbl');
+                $(".xs_login_display").addClass('dsno');
+            }
+            if($('.password').hasClass('dsbl')){//手机登录
+                $('.password').removeClass('dsbl');
+                $(".password").addClass('dsno');//不显示
+                $("#xs_password").val("");
+                $('#login_btn').attr({"disabled":"disabled"});//禁用
+                $('.xs_error_tips').addClass('dsno');
+            }else{
+                $('.password').removeClass('dsno');//密码登录
+                $("#xs_password").val("");
+                $(".password").addClass('dsbl');//显示
+                $('.xs_error_tips').addClass('dsno');
+                $('#login_btn').attr({"disabled":"disabled"});//禁用
+            }
+            $('#drag').drag();//滑动要放在登录模块是否显示之后
+        });
+        $('.btn-loading-example').click(function () {
+            var loginState=$(".xs_content_current").attr("id");
+            var str=loginState.lastIndexOf("\_");
+            var newState=loginState.substring(str+1,loginState.length);
+            var login_btn=$('#login_btn');
+            if(newState==0){//用户密码
+                var userName=$.trim($('#xs_username').val());//用户名或手机
+                var password=$.trim($('#xs_password').val());//用户密码
+                if(userName!=""&&password!=""){
+                    var $btn = $(this)
+                    $btn.button('loading');
+                    setTimeout(function(){
+                        $btn.button('reset');//
+                    }, 500);
+                    namePwd_login(userName,password);
+                }else{
+                    $('.xs_errpr_text ').text("所填值不能为空");
+                    $('.xs_error_tips').removeClass('dsno');
+                    login_btn.attr({"disabled":"disabled"});
+                    return;
+                }
+            }
+            if(newState==1){//手机验证
+                var userName=$.trim($('#xs_username').val());//用户名或手机
+                var smsCd=$.trim($('#sms-cd').val());//验证码
+                if(userName!=""&&smsCd!=""){//手机登录
+                    var $btn = $(this);
+                    $btn.button('loading');
+                    setTimeout(function(){
+                        $btn.button('reset');
+                    }, 500);
+                    phone_login(userName,smsCd);
+                }else{
+                    $('.xs_errpr_text ').text("所填值不能为空");
+                    $('.xs_error_tips').removeClass('dsno');
+                    login_btn.attr({"disabled":"disabled"});
+                    return;
+                }
+            }
+        });
+    };
+
+</script>
+<script>
+</script>
+</body>
+</html>

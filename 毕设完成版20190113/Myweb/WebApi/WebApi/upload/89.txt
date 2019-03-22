@@ -1,0 +1,79 @@
+预约状态(1成功2失败3取消4已就诊5已检查6已停诊)
+(0待接收 1已接收 2拒绝 3取消 4补录)
+(1：待审核2：预住院3：已拒绝4：已取消5：已作废6：未入院7：已入院8：已出院9：补录)
+
+
+同意
+拒绝
+取消
+成功
+
+【家庭好医】拒绝上转通知：浙江省眼科医院拒绝了汪洋先生预约<浙江省眼科医院><视光诊疗中心><邓军><2018年07月19日下午13:00>门诊。如有疑问，请联系医生电话12345678901（上级医院电话）。
+【家庭好医】拒绝上转通知：   预约医院名称  拒绝了  病人姓名  性别  预约<预约医院名称><预约科室名称><邓军><申请入驻时期>门诊。如有疑问，请联系医生电话12345678901（上级医院电话）。
+
+【家庭好医】汪洋先生，您已预约<浙江省眼科医院><视光诊疗中心><邓军><2018年07月19日下午13:00>门诊成功，请携带有效身份证件于就诊当日准时就诊。如若取消就诊，请联系医生电话12345678901（下级医院电话）
+【家庭好医】取消上转通知：已取消汪洋先生预约<浙江省眼科医院><皮肤科><邓军><2018年07月19日13:00>门诊。如有疑问，请联系医生电话12345678901（下级医院电话）。
+病人姓名1 性别2 预约医院名称0  申请入驻时期5 预约科室名称3 医生4
+
+
+
+package com.zhuojian.api.controller;
+
+import com.zhuojian.domain.HealthCardApply;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+
+/**
+ * 获取健康证记录
+ * */
+@RestController
+@RequestMapping("api")
+public class GetHealthCardRecord {
+    @Autowired
+    private HealthCardApplyService healthCardApplyService;
+
+    @RequestMapping("GetHealthCardRecord")
+
+    public List<HealthCardApply> HealthCardApply(){
+
+//        HealthCardApply hea=new HealthCardApply();
+
+        List<HealthCardApply> all = healthCardApplyService.getAllHealthCardApply();
+        return all;
+    }
+}
+取出用户对应id的信息 看State（0申请中 1办理中 2办理成功 3过期失效）
+0申请中  暂无您的健康证
+1办理中：您已成功申请办理健康证，接下来请到相关机构进行缴费和体检。体检完成5个工作日后，健康证办理好
+2办理成功 显示姓名 身份证 手机号 二维码（……）
+3过期失效 您的健康证已过期，请重新办理
+
+
+
+
+
+
+    <select id="getHealthCardApply" resultType="com.zhuojian.domain.HealthCardApply" parameterType="int">
+        SELECT *
+        FROM HealthCardApply
+        WHERE Id = #{Id}
+    </select>
+健康证流程
+健康证体检流程及领证通知单
+一、体检顺序：
+1、二楼收费处交费共计96元；
+2、二楼化验室抽血、留取大便培养；
+3、凭挂号处拿取的全科医生就诊号在二楼各诊室进行内科检查；
+4、请去三楼放射科进行X线透视检查。
+以上项目结束后将体检表交回到一楼大厅登记处。
+二、5个工作日后可领取健康证：
+1、领证日期20 年 月 日下午1：30---16：00
+2、如当天未领取请改至每周二、五下午领取。
+3、质询电话：15268575299  15268575100
+4、凭此通知单领取健康证，请妥善保管。
+四季青街道社区卫生服务中心
+"一、体检顺序：\r\n1、二楼收费处交费共计96元；\r\n2、二楼化验室抽血、留取大便培养；\r\n3、凭挂号处拿取的全科医生就诊号在二楼各诊室进行内科检查；\r\n4、请去三楼放射科进行X线透视检查。\r\n以上项目结束后将体检表交回到一楼大厅登记处。\r\n二、5个工作日后可领取健康证：\r\n1、领证日期20 年 月 日下午1：30---16：00\r\n2、如当天未领取请改至每周二、五下午领取。\r\n3、质询电话：15268575299  15268575100\r\n4、凭此通知单领取健康证，请妥善保管。\r\n四季青街道社区卫生服务中心

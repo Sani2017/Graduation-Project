@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>admin_worksList_content</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><!--设置meta标签 清除页面缓存-->
+    <!--<link rel="icon" type="image/png" href="assets/i/favicon.png">--><!--标签图标-->
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <!--<script src="assets/js/echarts.min.js"></script>-->
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/worksCss.css">
+    <script src="assets/js/jquery.min.js"></script>
+</head>
+<style>
+    .tpl-i-font,.tpl-table-images-content-i-time{
+        color: #fff;
+    }
+    [class*=am-u-]+[class*=am-u-]:last-child {
+        float: left!important;
+    }
+</style>
+<body data-type="widgets" class="theme-black">
+
+<div class="am-g tpl-g">
+    <!-- 头部 -->
+    <header>
+        <!-- logo -->
+        <div class="am-fl tpl-header-logo">
+            <a href="javascript:;"><img src="assets/img/logo.png" alt=""></a>
+        </div>
+        <!-- 右侧内容 -->
+        <div class="tpl-header-fluid">
+            <!-- 侧边切换 -->
+            <div class="am-fl tpl-header-switch-button am-icon-list">
+                    <span>
+
+                </span>
+            </div>
+            <!-- 其它功能-->
+            <div class="am-fr tpl-header-navbar">
+                <ul>
+                    <!-- 欢迎语 -->
+                    <li class="am-text-sm tpl-header-navbar-welcome">
+                        <a href="javascript:;">欢迎你, <span class="adminName">Amaze UI</span> </a>
+                    </li>
+                    <!-- 退出 -->
+                    <li class="am-text-sm">
+                        <a href="javascript:;" onclick="exit()">
+                            <span class="am-icon-sign-out"></span> 退出
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <!-- 侧边导航栏 -->
+    <div class="left-sidebar">
+        <!-- 菜单 -->
+        <ul class="sidebar-nav">
+            <li class="sidebar-nav-link">
+                <a href="index.html">
+                    <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
+                </a>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="addActivity.html">
+                    <i class="am-icon-calendar sidebar-nav-link-logo"></i> 添加活动
+                </a>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="addAdmin.html">
+                    <i class="am-icon-user sidebar-nav-link-logo"></i> 添加管理
+                </a>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title active">
+                    <i class="am-icon-table sidebar-nav-link-logo"></i> 数据列表
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico sidebar-nav-sub-ico-rotate"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub" style="display: block;">
+                    <li class="sidebar-nav-link">
+                        <a href="worksList.html"  class="sub-active">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 作品列表
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="userList.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 用户列表
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="sortList.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 类型列表
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="activityList.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 活动列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>    </div>
+
+
+
+
+    <div class="tpl-content-wrapper" >
+        <div class="container-fluid  am-cf">
+            <!--<div class="tpl-content-page-title">-->
+            <!--Amaze UI 文字列表-->
+            <!--</div>-->
+            <!--<ol class="am-breadcrumb">-->
+            <!--<li><a href="#" class="am-icon-home">首页</a></li>-->
+            <!--<li><a href="#">Amaze UI CSS</a></li>-->
+            <!--<li class="am-active">文字列表</li>-->
+            <!--</ol>-->
+            <div class="tpl-portlet-components widget">
+                <div class="portlet-title">
+                    <div class="caption font-wore  " style="color: #fff;">
+                        <span class="am-icon-code"></span> 作品审核详情表
+                        <button id="IsShow" type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 修改</button>
+                    </div>
+                    <!--<div class="tpl-portlet-input tpl-fz-ml">-->
+                    <!--<div class="portlet-input input-small input-inline">-->
+                    <!--<div class="input-icon right">-->
+                    <!--<i class="am-icon-search"></i>-->
+                    <!--<input type="text" class="form-control form-control-solid" placeholder="搜索..."> </div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+
+                </div>
+                <div class="tpl-block">
+                    <div class="am-g" style="margin-bottom: 15px;padding: 0 30px; width: 100%;text-align: center  ">
+
+                        啊啊啊啊啊啊
+                        <div class="left_details_head"></div>
+                        <div class="right_details_head"></div>
+                        <div class="cotent_work"></div>
+                        <div class="recommend_number"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+</div>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/amazeui.datatables.min.js"></script>
+<script src="assets/js/dataTables.responsive.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/jquery.cookie.js"></script>
+<script src="assets/js/md5.js"></script>
+<script src="assets/js/outList.js"></script>
+<script src="assets/js/amazeui.page.js"></script>
+<script src="assets/js/common.js"></script>
+<script>
+    // <!--判断用户名是否有效-->
+    var AdminName=$.cookie("AdminName");
+    var AdminToken=$.cookie("Token");
+    var t="t";
+    Judge_login(AdminName,AdminToken,fun);
+    var WorkIdValueUrl= GetQueryStringByUrl("WorkId");
+    function fun(obj){
+        if(!obj){
+            window.location.href="Login.html";
+            //window.history.back(-1);
+            return false;
+
+        }else {
+            //获取url传值
+            if(WorkIdValueUrl==null){
+                window.location.href="worksList.html";
+                window.history.back(-1);
+
+            }else {
+                GetWorkInfoByWorkId(WorkIdValueUrl);
+
+            }
+
+        }
+    }
+
+    $(".adminName").text($.cookie("AdminName"));
+
+    $(function () {
+        $(document).on('click', '#IsShow', function() {
+            $.ajax({
+                url: "http://localhost:6992/api/Works/UpdateWorkrevert",
+                type: "Get",
+                async: true,
+                //data: _json, //不能直接写成 {id:"123",code:"tomcat"}
+                //dataType: "json",
+                // contentType: "charset=utf-8",  ,"cat":Search
+                data:{
+                    id:""+WorkIdValueUrl+""},
+                //cache: false,
+                success: function (returndata) {
+                    if(returndata.suc==false){
+                        alert(returndata.mes)
+                    }else{
+                        window.location.href="worksList.html";
+                    }
+                },
+                error: function (returndata) { alert(returndata+"错误"); }
+            });
+
+        });
+
+    })
+</script>
+</body>
+</html>

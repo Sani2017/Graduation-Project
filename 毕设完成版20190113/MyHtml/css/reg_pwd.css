@@ -1,0 +1,93 @@
+/*
+    用于用户找回密码与用户注册页面。
+*/
+h2,ul,li{
+    margin: 0;
+    padding: 0;
+}
+body{
+
+    background: #f4f4f4;
+}
+.impColor{
+    color: #FF9222;
+
+}
+.overHidden{
+    overflow: hidden;
+}
+#xs_reg_content{
+    max-width: 900px;
+    margin: 0 auto;
+
+}
+#xs_reg_header{
+    margin: 60px 0 30px 0;
+}
+#xs_reg_header a{
+    color: #FF9222;
+}
+.xs_out_index{
+    float: right;
+}
+.xs_login_right:after{
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+    width: 1px;
+    height: 14px;
+    background: #666666;
+    margin:-4px 20px 0 20px;
+}
+
+
+#xs_reg_bg{
+    background: #fff;
+    /*position: relative;*/
+    border-radius: 5px;
+}
+#xs_reg_bg h2{
+    height: 76px;
+    line-height: 76px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: normal;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #FF9222;
+}
+.xs_reg_box{
+    margin: 8px 30% 0;
+    padding-bottom: 20px;
+    border: none;
+    box-shadow:none;
+    /*max-width: 350px;*/
+    /*width: 26%;*/
+    /*min-width: 315px;*/
+    /*padding: 2rem;*/
+    /*z-index: 10;*/
+    /*border-radius: 5px;*/
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%,-50%);*/
+    /*z-index: 1012;*/
+}
+.blog-text-center{
+    color: #999;
+}
+.xs_error_tips_reg{
+    margin-bottom: 7px;
+    height: 25px;
+}
+#sms-error-tips a{
+    color: #FF9222;}
+/*找回密码*/
+.xs_retrieve_pwd_title{
+    font-size: 20px;
+    line-height: 20px;
+    color: #333333;
+    margin: 20px 0 10px;
+    text-align: center;
+}

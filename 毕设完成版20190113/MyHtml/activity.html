@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>活动</title>
+    <link rel="stylesheet" href="css/amazeui.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/mycss.css"/>
+    <link rel="stylesheet" href="css/detailsCss.css"/>
+    <script>
+
+    </script>
+</head>
+<style type="text/css">
+    .am-topbar .am-text-ir {
+        display: block;
+        margin-right: 10px;
+        height: 55px;
+        width: 140px;
+        background: url(images/logo.png) no-repeat left center;
+        -webkit-background-size: 125px 24px;
+        background-size: 125px 24px;
+    }
+    /*.xs_card_box{*/
+        /*width: 500px!important;*/
+    /*}*/
+    .xs_activity_card_info{
+        border-bottom: 1px solid #eee;
+    padding: 0 16px 6px;
+    /* height: 75px; */
+    position: relative;
+    }
+    .xs_card_info_time{
+        text-align: left;
+    font-size: 12px;
+    color: #bbb;
+    margin-top: 5px;
+    margin-bottom: 0;
+    /* height: 18px; */
+
+    }
+    .statistics-comment{
+        margin-left: 10px;
+    }
+    .xs_card_item{
+        color: #bbb;
+    }
+    .xs_card_item i{
+        padding-right: 5px;
+    }
+</style>
+<script>
+</script>
+<body>
+<div id="xs_login_output" style="display: none"></div>
+
+<header>
+    <div id="xs_header_back" class="am-topbar am-topbar-inverse">
+        <nav >
+            <span id="logo" class="am-topbar-brand">
+                <a href="index.html" class="am-text-ir"></a>
+                <!-- <img src="" alt="logo">logo -->
+            </span>
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse-2'}" style="margin-top: 10px;">
+                <span class="am-sr-only">导航切换</span>
+                <span class="am-icon-bars"></span>
+            </button>
+            <div class="am-collapse am-topbar-collapse xs_text_center" id="doc-topbar-collapse-2">
+                <!-- 导航 style="display: none;"-->
+                <div class="xs_nav_content nav_transition transition  "  id="xs_nav_content">
+                    <ul class="am-nav am-nav-pills"  id="xs_header_nav">
+                        <li><a href="index.html">首页</a></li><!-- am-topbar-nav -->
+                        <li><a href="discover.html">发现</a></li>
+                        <li class="xs_current "><a href="javascript:void (0);">活动</a></li>
+                        <li><a href="Popular_list.html">榜单</a></li>
+                        <li><a href="Popular_list_user.html">大佬</a></li>
+                        <input type="text" class="am-form-field am-input-sm xs_none_input" placeholder="搜索">
+                    </ul>
+                </div>
+                <!-- 搜索框style="display:none" placeholder="请搜索……"-->
+                <div class="xs_serch_input  transition " id="xs_serch_input"  >
+                    <form action="#" id="xs_header_serher">
+                        <span class="am-icon-close am-icon-sm xs_input_close" id="xs_input_close" onclick="clk();"></span><!-- onkeyup="inutpSelect();"-->
+                        <input type="text"  autofocus="autofocus" autocomplete="off"
+                               id="xs_search_input"   style="outline:none;"><!--onkeyup="inutpSelect();"-->
+                        <span class="am-icon-search am-icon-sm" id="xs_input_search"></span>
+                        <!--添加判断，如搜索框无值这调用clk()，有值跳转-->
+                        <div id="search-content" class="search-content">
+                            <div class="search-content-list">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="am-topbar-right" id="xs_content_login_box">
+                    <div class="am-topbar-right">
+
+                        <div class="am-dropdown" id="xs_login_box" data-am-dropdown="{boundary: '.am-topbar'}"><!-- style="height: 55px;"-->
+                            <!-- 用户未登录显示 -->
+                            <!-- <ul class="unlogin" >
+                                <li>
+                                    <span class="am-icon-search am-icon-sm am-btn am-btn-sm xs_header_btn_style xs_search_icon" onclick="clk()"></span>
+                                    <a href="#" class=" am-btn xs_header_btn_style" id="xs_login_btn">登录</a>
+                                    <i></i>
+                                    <a href="#" class="am-btn  xs_header_btn_style" id="xs_reg_btn">注册</a>
+                                </li>
+                            </ul> -->
+                            <!-- 用户登录显示 -->
+                            <!--<ul class="logining">
+                                <li>
+                                    <span class="am-icon-search am-icon-sm am-btn am-btn-sm xs_header_btn_style xs_search_icon" onclick="clk()"></span>
+                                    <span class="am-icon-home am-icon-sm am-btn am-btn-sm xs_header_btn_style" id="xs_info_btn"></span>
+                                    <span class="xs_user_img">
+                                        <a href="#">
+                                            <img src="http://localhost:6992//upload/userImg/03.jpg" alt="头像">
+                                        </a>
+                                        <a href="#">退出</a></span>
+                                </li>
+                            </ul>  -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div>
+        <div class="" id="xs_slides_box" style="margin: 0 auto;">
+            <div class="xs_top_img">
+                <img src="images/top_1.jpg" width="100%" height="100%" alt="" title="" border="0">
+            </div>
+            <!-- 输出类型列表 -->
+        </div>
+        <!--<div id="search_value" class="widthMargin dsno">-->
+            <!--<div id="xs_search_nav">-->
+                <!--<ul class="">-->
+                    <!--<li id="search_work" class="searchValueTitle xs_content_current" >-->
+                        <!--<a href="javascript:void (0);">作品</a>-->
+                    <!--</li>-->
+                    <!--<li id="search_user" class="searchValueTitle"  onclick="searchWorkAndUser(this);">-->
+                        <!--<a href="javascript:void (0);">大佬</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--<div class="xs_search_input">-->
+                <!--<div class="xs_search_input_box">-->
+                    <!--<input id="xs_search_word" type="text"  autofocus="autofocus" autocomplete="off"  style="outline:none;" >-->
+                    <!--<button class="xs_search_word_btn" onclick="selectValue();">-->
+                        <!--<span class="am-icon-search am-icon-sm "></span>-->
+                    <!--</button>-->
+                <!--</div>-->
+
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--<ul class="xs_content_nav " data-am-sticky>-->
+        <!--<li class="xs_content_nav_mark xs_content_current currentSelect">-->
+        <!--<a href="#">最新发布</a>-->
+        <!--</li>-->
+        <!--<li class="xs_content_nav_mark">-->
+        <!--<a href="#">赞数最多</a>-->
+        <!--</li>&lt;!&ndash;点击出dom 锚点返回上层&ndash;&gt;-->
+        <!--<li class="xs_content_nav_mark ">-->
+        <!--<a href="#">浏览最多</a>-->
+        <!--</li>-->
+        <!--&lt;!&ndash; <li class="asd " id="asasas">sdf</li> &ndash;&gt;-->
+        <!--</ul>-->
+        <!--<div class="xs_top_activity_select dsno">-->
+            <!--<ul class="widthMargin" id="sortList">-->
+                <!--&lt;!&ndash; /类型输出/ &ndash;&gt;-->
+                <!--&lt;!&ndash; <li><a id="sort_0" class="sortSelect allSortList newSelect" href="javacript:void(0);">全部</a></li>-->
+                <!--<li><a id="sort_1" class="sortSelect" href="javacript:void(0);">web</a></li> &ndash;&gt;-->
+            <!--</ul>-->
+        <!--</div>-->
+    </div>
+</header>
+<div id="content">
+    <!-- data-am-smooth-scroll="{position: 691}"滚动定位 xstent_current-->
+    <ul  data-am-smooth-scroll="{position: 640}" class="xs_content_nav " data-am-sticky>
+        <li class="xs_content_nav_mark xs_content_current currentSelect" id="navMark_0">
+            <a href="#">最新发布</a>
+        </li>
+        <li class="xs_content_nav_mark"  id="navMark_1">
+            <a href="#">赞数最多</a>
+        </li><!--点击出dom 锚点返回上层-->
+        <li class="xs_content_nav_mark "  id="navMark_2">
+            <a href="#">浏览最多</a>
+        </li>
+        <!-- <li class="asd " id="asasas">sdf</li> -->
+    </ul>
+    <div id="xs_content_menu">
+        <!-- 下面的max-width控制一行有多少图 -->
+        <div class="am-g am-g-fixed blog-fixed blog-content" style="max-width: 1300px;">
+            <!--  am-figure 这个会class 会出现图片浏览器    -->
+            <figure data-am-widget="figure" class="am  am-figure-default "   data-am-figure="{  pureview: 'true' }">
+                <div id="container"><!--此处输出作品列表-->
+<!-- 活动列表代码完成，是否可行未测试 -->
+                </div>
+            </figure>
+            <div id="page3"><!--分页页码的显示-->
+
+            </div>
+        </div>
+
+        <div id="tips3" class="dsno"></div>
+        <div id="allPage"></div>
+    </div>
+    <div id="xs_content_img_list" >
+    </div>
+
+
+    <script>
+    </script>
+</div>
+<footer>
+    <div class="am-g   blog-fixed">
+        <div class="xs_bottom_logo"></div>
+        <div class="xs_bottom_icon"><!--  xs_border_style-->
+            <p>
+                <a href="javacript:void(0);">
+                    <span class="am-icon-qq am-icon-fw xs_bottom_icon_style xs_qq_ewm">
+                        <i class="xs_qqicon_hover"></i>
+                    </span>
+                </a>
+                <a href="javacript:void(0);">
+                    <span class="am-icon-weixin am-icon-fw xs_bottom_icon_style xs_weixin_ewm">
+                        <i class="xs_wxicon_hover"></i>
+                </span></a>
+            </p>
+        </div>
+    </div>
+
+    <div class="blog-text-center">&copy;2018 Purple dandel. Licensed under MIT license. Made with love By LWXYFER</div>
+</footer>
+<!-- 回到顶部功能 -->
+<div data-am-widget="gotop" class="am-gotop am-gotop-fixed xs_gotop">
+    <a href="#top" title="回到顶部">
+        <span class="am-gotop-title">回到顶部</span>
+        <i class="am-icon-btn am-icon-rocket amdoc-totop xs_gotop_icon"></i>
+    </a>
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/jquery.min.js"></script>
+<script src="js\jquery.cookie.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="js/amazeui.min.js"></script>
+<script src="js/pinto.min.js"></script>
+<script src="js/img.js"></script>
+<script src="js/outList.js"></script>
+<script src="js/drag.js"></script>
+<script src="js/selectkey.js"></script>
+<script  src="js/login.js"></script>
+<script  src="js/commonJS.js"></script>
+<!-- 此处是每个页面均会使用到的js -->
+<script type="text/javascript" src="js/amazeui.page.js"></script>
+
+<script type="text/javascript">
+    //获取url传值
+   // var userValueUrl= GetQueryStringByUrl("word");
+    // if(userValueUrl==null){
+    //     window.location.href="index.html";
+    //     window.history.back(-1);
+    // }else {
+        //alert(userValue);
+        outActivityList(2,null,1,null,0);//默认输出活动页面的列表
+     //   document.title = userValueUrl+"-作品搜索-🐱蒲";
+    // }
+
+    window.onload = function () {
+        outLoginBox();//输出登录dom
+        loginBox();//输出header登录状态
+        //登录模块效果
+        $(".xs_login_mark").on('click',function(){
+            $(".xs_login_mark").removeClass('xs_content_current');
+            $(this).addClass('xs_content_current');
+            if($('.xs_login_display').hasClass('dsno')){
+                $('.xs_login_display').removeClass('dsno');
+                $(".xs_login_display").addClass('dsbl');
+            }
+            else if($('.xs_login_display').hasClass('dsbl')){
+                $('.xs_login_display').removeClass('dsbl');
+                $(".xs_login_display").addClass('dsno');
+            }
+            if($('.password').hasClass('dsbl')){//手机登录
+                $('.password').removeClass('dsbl');
+                $(".password").addClass('dsno');//不显示
+                $("#xs_password").val("");
+                $('#login_btn').attr({"disabled":"disabled"});//禁用
+                $('.xs_error_tips').addClass('dsno');
+            }else{
+                $('.password').removeClass('dsno');//密码登录
+                $("#xs_password").val("");
+                $(".password").addClass('dsbl');//显示
+                $('.xs_error_tips').addClass('dsno');
+                $('#login_btn').attr({"disabled":"disabled"});//禁用
+            }
+            $('#drag').drag();//滑动要放在登录模块是否显示之后
+        });
+        $('.btn-loading-example').click(function () {
+            var loginState=$(".xs_content_current").attr("id");
+            var str=loginState.lastIndexOf("\_");
+            var newState=loginState.substring(str+1,loginState.length);
+            var login_btn=$('#login_btn');
+            if(newState==0){//用户密码
+                var userName=$.trim($('#xs_username').val());//用户名或手机
+                var password=$.trim($('#xs_password').val());//用户密码
+                if(userName!=""&&password!=""){
+                    var $btn = $(this)
+                    $btn.button('loading');
+                    setTimeout(function(){
+                        $btn.button('reset');//
+                    }, 500);
+                    namePwd_login(userName,password);
+                }else{
+                    $('.xs_errpr_text ').text("所填值不能为空");
+                    $('.xs_error_tips').removeClass('dsno');
+                    login_btn.attr({"disabled":"disabled"});
+                    return;
+                }
+            }
+            if(newState==1){//手机验证
+                var userName=$.trim($('#xs_username').val());//用户名或手机
+                var smsCd=$.trim($('#sms-cd').val());//验证码
+                if(userName!=""&&smsCd!=""){//手机登录
+                    var $btn = $(this);
+                    $btn.button('loading');
+                    setTimeout(function(){
+                        $btn.button('reset');
+                    }, 500);
+                    phone_login(userName,smsCd);
+                }else{
+                    $('.xs_errpr_text ').text("所填值不能为空");
+                    $('.xs_error_tips').removeClass('dsno');
+                    login_btn.attr({"disabled":"disabled"});
+                    return;
+                }
+            }
+        });
+    };
+    $(function () {
+        //当前页码的输出
+        $(document).on('click', '.clickPage', function() {
+            alert($(this).attr("data-page"));
+            alert($(".am-active").index());
+            //分类id
+            // var sort= $(".newSelect").attr("id");
+            // var strSort=sort.lastIndexOf("\_");
+            // var newSort=sort.substring(strSort+1,sort.length);
+
+            //通过标签id截取字符，获取选择导航
+            //查看状态id
+            var navMark=$(".currentSelect").attr("id");
+            var str=navMark.lastIndexOf("\_");
+            var lookState=navMark.substring(str+1,navMark.length);
+            //获取当前页码//类型
+            var currentPage=$(".am-active").index();//$(this).attr("data-page");
+
+            var outPages=$("#page").text();
+            outActivityList(2,lookState,currentPage,
+                outPages,0);
+// alert("3");
+        });
+    });
+    //通过查看类型输出作品列表
+    $(".xs_content_nav_mark").click(function(){
+        $(".xs_content_nav_mark").removeClass('xs_content_current').removeClass('currentSelect');
+        $(this).addClass('xs_content_current').addClass('currentSelect');
+
+        //获取当前页码//类型
+        var currentPage=$(".am-active").index();//$(this).attr("data-page");
+        outActivityList(2,$(this).index(),currentPage,null,0);//输出类型
+    });
+    //分頁頁碼的輸出
+    var clickPage;
+    function outPage(e){
+        if(e<=1){
+            $("#page3").addClass("dsno");
+        }
+        else{
+            $("#page3").removeClass("dsno");
+            var pagesHtml=$("#page").text();
+            if(e==pagesHtml){
+                return false;
+            }else{
+                //oldPage=e;
+                var str=e.toString();
+                $("#page3").page({
+                    pages:str,
+                    first: false,//"首页", //设置false则不显示，默认为false
+                    last: false,//"尾页", //设置false则不显示，默认为false
+                    prev: '＜',//<《 ▏  «»‹›◀▶◁▷﹤﹥＜＞ //若不显示，设置false即可，默认为上一页
+                    next: '＞', //若不显示，设置false即可，默认为下一页
+                    groups: 3, //连续显示分页数
+                    jump:function(context){
+                        $("#tips3").html("共"+context.option.pages+"页，当前第"+context.option.curr+"页");
+                    }
+                });
+            }
+        }
+    }
+</script>
+</body>
+</html>

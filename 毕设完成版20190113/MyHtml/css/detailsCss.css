@@ -1,0 +1,99 @@
+h2,ul,li{
+    margin: 0;
+    padding: 0;
+}
+.newSelect {
+    color:#FF9222!important;
+}
+.widthMargin{
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.xs_top_img{
+    margin-top: 4px;
+}
+.xs_top_activity_select{
+    margin-top: 20px;
+    width: 100%;
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+    /*padding-top: 20px;*/
+}
+.xs_top_activity_select li{
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    padding:0 8px;
+}
+.xs_top_activity_select li a{
+    padding: 4px 12px;
+transition: opacity 0.4s ease-in}
+.xs_top_activity_select li a:hover{
+    background: #f2f2f2;
+    border-radius: 4px;
+    opacity: 0.7;
+}
+/*xs_top_activity_select li a*/
+/*.sortSelect:visited{*/
+   /*color:#FF9222!important;*/
+/*}*/
+.am-pagination>li>a{
+    border-radius: 5px;
+}
+#page3 ul{
+    margin-left: 15px;
+}
+.am-active>.clickPage{
+    background-color: #FF9222!important;
+    border-color: #FF9222!important;
+}
+/*搜索界面css*/
+#search_value{
+    margin-bottom: -20px;
+    padding:0 20px 0 20px;
+}
+
+#xs_search_nav{
+    /*width: 50%;*/
+}
+#xs_search_nav ul li{
+    display: inline-block;
+    color: #000;
+}
+#xs_search_nav ul li a{
+    color: #999;
+    padding:20px 0 10px 0;
+    margin-right: 30px;
+    border-bottom: 2px #fff solid;
+    border-bottom-color: rgb(255, 255, 255);
+    display: inline-block;
+    font-size: 16px;
+}
+.xs_search_input{
+    /*width: 45%;*/
+    position: relative;
+}
+.xs_search_input_box{
+    position: absolute;
+    right: -24px;
+    bottom: 6px;
+}
+#xs_search_word{
+    width: 320px;
+    border: 1px solid #dddddd;
+    border-right: none;
+    height: 36px;
+    border-radius: 4px 0 0 4px;
+    padding-left: 10px;
+}
+.xs_search_word_btn{
+
+    border: none;
+    width: 80px;
+    height: 36px;
+    border-radius: 0 4px 4px 0;
+    background-color: #FF9222;
+    position: relative;
+    right: 4px;
+}
+/*搜索页输出用户列表*/

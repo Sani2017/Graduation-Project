@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+
+    <title></title>
+    <style type="text/css">
+        .search {
+             /* //搜索框 */
+            width: 60%;
+            height: 900px;
+            position: relative;
+            left: 0;
+            position: fixed;
+            opacity: 0;
+            display: none;
+            background: rgba(0,0,0,0.2);
+            transition: opacity 1.5s;
+        }
+        .nav{
+           /* 导航 */
+            width: 50%;
+            height: 900px;
+            position: relative;
+            left: 0;
+            position: fixed;
+            opacity: 1;
+            display: block;
+            background: rgba(148, 33, 33, 0.137);
+            transition: opacity 1.5s;
+        }
+
+        .main {
+            background:#66ccff;
+            width: 200px;
+            height: 200px;
+            margin-top: -300px;
+            margin:0 auto 0 auto;
+            transition: all 1.5s ease 0s;
+            -webkit-transition: all 1.5s ease-in-out 0s;
+            -o-transition: all 1.5s ease-in-out 0s;
+            border-radius: 8px;
+            box-shadow:0 6px 15px #989898;
+            
+        }
+        .active {
+            opacity: 1;
+        }
+        .nuactive {
+            opacity: 0;
+        }
+        /* .childActive {
+            margin-top: 100px;
+        } */
+
+    </style>
+</head>
+<body>
+    <h1>
+        用于导航，搜索框变换，（半成品吧）
+    </h1>
+<button onclick="clk()" value="按钮">消失-出现clk</button>
+<!-- <button onclick="clk2()" value="按钮">出现-消失clk2</button> -->
+
+<div class="nav" onclick="alert('nav')">
+    导航
+    <!-- <div class="main">导航</div> -->
+</div>
+
+<div class="search" onclick="alert('search')"> 
+        搜索框
+    <!-- <div class="main">搜索框</div> -->
+</div>
+<!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="js/jquery.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lte IE 8 ]>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+    <script src="js/amazeui.ie8polyfill.min.js"></script>
+    <![endif]-->
+    <script src="js/amazeui.min.js"></script>
+    <script src="js/pinto.min.js"></script>
+    <script src="js/img.js"></script>
+    <script type="text/javascript">
+    var bool = true;
+    function clk(){
+        bool = !bool;
+        if(!bool){
+            $('.search').css('display','block');
+            $('.nav ').css('display');
+            $('.nav').css('display','none');
+            setTimeout(function(){
+                $('.search').addClass('active');
+                // $('.nav').addClass('nuactive');
+                $('.nav').css('display');
+                $('.nav').css('display','none');
+            },0);
+        }else{
+            $('.search').removeClass('active');
+            $('.nav').removeClass('nuactive');
+            $('.search').css('display','none');
+            $('.nav').css('display','block');
+        }
+        // $('.search').on('transitionend',function(){//如无事件监听，元素这是不可见但仍能点击
+        //     if(!bool){
+        //         $('.search').css('display','none');
+        //     }
+        // });
+        // $('.nav').on('transitionend',function(){
+        //     if(!bool){
+        //         $('.nav').css('display','block');
+        //     }
+        // })
+    }
+//     function clk2(){
+//         bool = !bool;
+//         if(!bool){
+//             setTimeout(function(){
+//                 $('.nav').addClass('nuactive');
+
+//                $('.nav').css('display');
+//                $('.nav').css('display','none');
+//             },0);
+//             // 
+            
+//         }else{
+//             $('.nav').removeClass('nuactive');
+//  $('.nav').css('display','block');
+//                     // $('.nav').removeClass('nuactive');
+//         };
+//         $('.nav').on('transitionend',function(){//如无事件监听，元素这是不可见但仍能点击
+//             if(!bool){
+//                 $('.nav').css('display');
+//                 $('.nav').css('display','none');
+//             }else{
+//             $('.nav').css('display','block');
+//              }
+//         });
+
+//     }
+//     clk();
+    //clk();
+</script>
+
+</body>
+</html>

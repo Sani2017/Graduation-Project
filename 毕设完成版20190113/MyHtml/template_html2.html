@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <title>账号安全模板</title>
+    <link rel="stylesheet" href="css/amazeui.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/reg_pwd.css"/>
+    <link rel="stylesheet" href="css/mycss.css"/>
+</head>
+<!--https://www.cnblogs.com/mr-amazing/p/5674188.html-->
+<style type="text/css">
+
+
+</style>
+
+<script>
+
+</script>
+<body class="overHidden">
+<div id="xs_reg_content" class="xs_a_opacity ">
+    <div id="xs_reg_header">
+        <a href="index.html" class="xs_logo">这里是logo</a>
+        <a href="index.html" class="xs_out_index">返回首页</a>
+        <span class="font_size xs_out_index xs_login_right">已有账号,<a href="index.html">马上登录</a> </span>
+    </div>
+    <div id="xs_reg_bg">
+        <h2>账号安全</h2>
+        <div class="xs_reg_box am-panel am-panel-default">
+            <p class="xs_retrieve_pwd_title">找回密码</p>
+            <!--<ul class="xs_user_login_select"><li class="xs_login_mark"><a href="#">密码登录</a></li>-->
+            <!--<li class="xs_login_mark xs_content_current"><a href="#">手机登录</a></li>-->
+            <!--</ul>-->
+            <div class="xs_error_tips_reg" id="sms-error-tips">
+                <span class="ipt-tips-default ipt-default-current js-err-l xs_err_dis dsno">
+                    <i class="am-icon-minus-circle" style="padding-right: 5px;color:red"></i>
+                    <span class="font_size xs_errpr_text "></span>
+                </span>
+            </div>
+            <div class="username">
+                <input type="text" id="xs_username" onkeyup="" placeholder="用户名或手机号" autocomplete="off" class="xs_login_style">
+            </div>
+            <div class="xs_login_display dsbl">
+                <div id="wrapper">
+                    <div id="drag">
+                        <div class="drag_bg" style="width: 0px;">
+                        </div>
+                        <div class="drag_text slidetounlock" onselectstart="return false;" unselectable="on">请按住滑块，拖动到最右边</div>
+                        <div class="handler handler_bg am-icon-angle-double-right" style="left: 0px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="l-sms-code js-ipt-h dsno">
+                    <input type="text" autocomplete="off" class="text-style ipt-short-current xs_sms_input xs_login_style" id="sms-cd" maxlength="6" onkeyup="">
+                    <input type="button" class="xs_sms_btn xs_login_btn sms-cd-btn btn-default-main" id="sms-send-cd-btn" value="发送验证码" >
+                    <!--当前面正确后js dom 输出-->
+                    <!--密码重置-->
+                    <div class="xs_retrieve_pwd_box">
+                        <div class="username" style="margin-top: 20px">
+                            <input type="password" id="new_pwd"  placeholder="请输入新密码" autocomplete="off" class="xs_login_style">
+                        </div>
+                        <div class="username" style="margin-top: 20px">
+                            <input type="password" id="new_pwd_again"  placeholder="请再次输入密码" autocomplete="off" class="xs_login_style">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <button type="button" class=" xs_login_btn am-btn  btn-loading-example" id="login_btn" style="outline:none;" disabled="disabled">确&nbsp;&nbsp;认</button>
+        </div>
+    </div>
+    <div class="blog-text-center font_size">浙ICP备18051954号&nbsp;浙江省杭州市·Purple andel</div>
+    <div class="blog-text-center font_size" style="margin-top: 10px">Copyright ©2018 Purple dandel. By Sani</div>
+</div>
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/jquery.min.js"></script>
+<script src="js\jquery.cookie.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="js/amazeui.min.js"></script>
+<script src="js/pinto.min.js"></script>
+<script src="js/img.js"></script>
+<script src="js/outList.js"></script>
+<script src="js/drag.js"></script>
+<script src="js/selectkey.js"></script>
+<script  src="js/login.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        $('#drag').drag();
+    };
+
+
+
+</script>
+</body>
+</html>

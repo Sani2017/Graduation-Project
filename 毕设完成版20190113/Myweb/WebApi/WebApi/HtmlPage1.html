@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="ueditor/utf8-asp/ueditor.all.js"></script>
+    <script src="ueditor/utf8-asp/ueditor.config.js"></script>
+    <script src="ueditor/utf8-asp/ueditor.all.min.js"></script>
+</head>
+<body>
+    <div>
+        <script id="container" name="content" type="text/javascript" style="width:100%;height:500px"></script>
+    </div>
+    <script type="text/javascript">
+        var ue = UE.getEditor("container");
+    </script>
+
+    <button onclick="getContent()">获得内容this</button>
+    <script>
+
+        function getContent() {
+            var arr = [];
+            arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+            arr.push("内容为：");
+            arr.push(UE.getEditor('editor').getContent());
+            alert(arr.join("\n"));
+        }
+    </script>
+</body>
+</html>

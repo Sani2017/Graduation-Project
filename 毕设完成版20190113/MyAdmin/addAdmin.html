@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>admin_addAdmin</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><!--设置meta标签 清除页面缓存-->
+    <!--<link rel="icon" type="image/png" href="assets/i/favicon.png">--><!--标签图标-->
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <!--<script src="assets/js/echarts.min.js"></script>-->
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="assets/css/app.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <style>
+        /*更改富文本样式*/
+        .w-e-toolbar,
+        .w-e-text-container{
+            background: none!important;
+            border: none!important;
+        }
+        .dsno{
+            display: none!important;
+        }
+    </style>
+</head>
+
+<body data-type="widgets" class="theme-black">
+<script src="assets/js/theme.js"></script>
+<div class="am-g tpl-g">
+    <!-- 头部 -->
+    <header>
+        <!-- logo -->
+        <div class="am-fl tpl-header-logo">
+            <a href="javascript:;"><img src="assets/img/logo.png" alt=""></a>
+        </div>
+        <!-- 右侧内容 -->
+        <div class="tpl-header-fluid">
+            <!-- 侧边切换 -->
+            <div class="am-fl tpl-header-switch-button am-icon-list">
+                    <span>
+
+                </span>
+            </div>
+            <!-- 其它功能-->
+            <div class="am-fr tpl-header-navbar">
+                <ul>
+                    <!-- 欢迎语 -->
+                    <li class="am-text-sm tpl-header-navbar-welcome">
+                        <a href="javascript:;">欢迎你, <span class="adminName">Amaze UI</span> </a>
+                    </li>
+                    <!-- 退出 -->
+                    <li class="am-text-sm">
+                        <a href="javascript:;"  onclick="exit()">
+                            <span class="am-icon-sign-out"></span> 退出
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <!-- 侧边导航栏 -->
+    <div class="left-sidebar">
+        <!-- 菜单 -->
+        <ul class="sidebar-nav">
+            <li class="sidebar-nav-link">
+                <a href="index.html">
+                    <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
+                </a>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="addActivity.html">
+                    <i class="am-icon-calendar sidebar-nav-link-logo"></i> 添加活动
+                </a>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="addAdmin.html" class="active">
+                    <i class="am-icon-user sidebar-nav-link-logo"></i> 添加管理
+                </a>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-table sidebar-nav-link-logo"></i> 数据列表
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub">
+                    <li class="sidebar-nav-link">
+                        <a href="worksList.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 作品列表
+                        </a>
+                    </li>
+
+                    <li class="sidebar-nav-link">
+                        <a href="userList.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 用户列表
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="sortList.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 类型列表
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="activityList.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 活动列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- 内容区域 -->
+    <div class="tpl-content-wrapper">
+
+        <div class="container-fluid am-cf">
+            <div class="row">
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">管理员添加</div>
+                        </div>
+                        <div class="widget-body am-fr">
+
+                            <form class="am-form tpl-form-line-form">
+                                <div class="am-form-group">
+                                    <label id="user-name" class="am-u-sm-3 am-form-label">管理员名 <span class="tpl-form-line-small-title">AdminName</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="activity_name" placeholder="请输入标题文字">
+                                        <small class="error_text ">请填写管理员名称5-10字左右。</small>
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label id="user-email" class="am-u-sm-3 am-form-label">管理员密码 <span class="tpl-form-line-small-title">Password</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="password" placeholder="密码大小写字母、数字，8-16位" class="am-form-field tpl-form-no-bg" id="password">
+                                        <small class="error_work_pwd"></small>
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <div class="am-u-sm-9 am-u-sm-push-3">
+                                        <button type="button" id="upload_btn" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--</div>-->
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/amazeui.datatables.min.js"></script>
+<script src="assets/js/dataTables.responsive.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/md5.js"></script>
+<script src="assets/js/jquery.cookie.js"></script>
+<script src="assets/js/common.js"></script>
+</body>
+<script>
+    // <!--判断用户名是否有效-->
+    var AdminName=$.cookie("AdminName");
+    var AdminToken=$.cookie("Token");
+    var t="t";
+    var AdminRight=$.cookie("AdminRight");
+    if(AdminRight!=1){
+        alert("无权使用该功能");
+        window.location.href="index.html";
+        indow.history.back(-1);
+    }else{
+        Judge_login(AdminName,AdminToken,fun);
+        function fun(obj){
+            if(!obj){
+                window.location.href="Login.html";
+                //window.history.back(-1);
+                return false;
+
+            }
+        }
+    }
+    $(".adminName").text($.cookie("AdminName"));
+    // <!--用户名限制-->
+    $("#activity_name").blur(function () {
+        var userName=$("#activity_name").val();//活动标题
+        if(userName==""){
+
+            $(".error_text").removeClass("").text("用户名不能为空");
+            alert("用户名不能为空");
+            return false;
+        }else {
+            if(userName.length<5||userName>10){
+                $(".error_text").removeClass("").text("请填写管理员名称5-10字左右");
+                alert("请填写管理员名称5-10字左右");
+                return false;
+
+            }else {
+                $.ajax({
+            url: "http://localhost:6992/api/Admin/SeleUserName",
+            type: "get",
+            //dataType: "json",
+            data: {
+                userName:""+userName+""
+            },
+            success: function (returndata) {
+                if(returndata){
+                    $(".error_text").removeClass("").text("用户名已存在");
+                     alert("用户名已存在");
+                    //$("#activity_name").focus();
+                    return false;
+                }else {
+                    $(".error_text").removeClass("").text("用户名可用");                }
+            },
+            error: function (returndata) { alert(returndata.mes+"错误"); }
+        });
+            }
+        }
+    });
+    //密码限制
+    //至少8-16个字符，至少1个大写字母，1个小写字母和1个数字，其他可以是任意字符：
+    $("#password").blur(function () {
+        var pwd=$("#password").val();
+        var err_tip=$(".error_work_pwd");
+        var regex =new RegExp('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/');
+        //new RegExp('^(?![a-zA-Z]+$)(?![A-Z0-9]+$)(?![A-Z\W_!@#$%^&*`~()-+=]+$)(?![a-z0-9]+$)(?![a-z\W_!@#$%^&*`~()-+=]+$)(?![0-9\W_!@#$%^&*`~()-+=]+$)[a-zA-Z0-9\W_!@#$%^&*`~()-+=]{8,30}$');
+        if((/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/.test(pwd))){
+            err_tip.text("密码可用");
+        }else{
+
+            err_tip.text("密码不符合规则，请重新输入，且长度在8~16。");
+            $("#password").focus();
+        }
+    });
+    //添加管理员
+    $("#upload_btn").click(function () {
+        var userName=$("#activity_name").val();//管理员名
+        var password=$("#password").val();//管理密码$.md5(
+        if(userName!=""&&password!=""){
+            if((/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/.test(password))){
+                $.ajax({//判断验证码是否正确
+                    data:{AdminName:""+userName+"",
+                        AdminPwd:$.md5(""+password+"")},
+                    url: "http://localhost:6992/api/Admin/AddAdmin",
+                    type: "post",
+                    async: true,
+                    success: function (returndata) {
+                        if(returndata.suc==true){
+                            alert("管理员添加成功")
+                            window.location.href="addAdmin.html";
+                        }else {
+                            alert(returndata.mes);
+                            return false;
+                        }
+                    },
+                    error: function (returndata) { alert(returndata.mes+"错误"); }
+                });
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // 不能去除</p>
+        var asd='<p>fdfge3544yyhgfhkjhybykok98htgfryk</p>\n' +
+    '<p><img src="images/05.jpg" alt=""></p>' +
+            '<p>sdfhgsdfsghdfgsh</p>';
+        var zz=new RegExp('<p([^>])*>(?=([^<]*)<img([^>])*>)|(?<=<img([^>]*)>([^<]*))');//"<p([^>])*>(?=([^<]*)<img([^>])*>)|(?<=<img([^>]*)>([^<]*))"
+        alert(asd.replace(zz,''));
+
+
+    var str = '<p><span style="font-size: x-large;">aaaaaa</span></p><h1><span style="font-size: x-large; font-family: 微软雅黑; font-style: italic; text-decoration-line: underline line-through;">bb<span style="color: rgb(249, 150, 59);">b</span>bb</span></h1><div><img src="http://localhost:6992/Upload/img/241bbfdc05344b0fb71f45e9813bab5c.png" style="text-align: left; max-width: 50%;"></div><p><br></p>';
+    var str1 = str.replace('<p><img', '<img');
+    alert(str1);
+
+    // 打印结果： obcadeacf
+
+    var str2 = str.replace(/<p><img/g, '<img');
+    var str3 = str2.replace(/"><\/p>/g, '">');
+    alert(str2);
+    alert(str3);
+
+    //打印结果： obcodeocf,
+</script>

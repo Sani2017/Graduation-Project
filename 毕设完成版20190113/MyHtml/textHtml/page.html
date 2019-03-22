@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../css/amazeui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/mycss.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/amazeui.min.js"></script>
+
+</head>
+<body id="top">
+
+<!--<div data-am-page="{pages:10,jump:'http://hersface.com/p/%page%'}">-->
+<!--</div>-->
+
+<div data-am-page="{pages:10,jump:jump}"></div>
+<div id="tips">11111</div>
+<div id="tips"></div>
+<hr>
+<div id="page1"></div>
+<hr>
+<h1>就这个</h1>
+<div id="page3"></div>
+<div id="tips3"></div>
+<div style="height: 10000px; background: #000;"></div>
+<div data-am-widget="gotop" class="am-gotop am-gotop-fixed xs_gotop "  >
+    <a href="#top" title="回到顶部">
+        <span class="am-gotop-title">回到顶部</span>
+        <i class="am-icon-btn am-icon-rocket amdoc-totop xs_gotop_icon"></i>
+    </a>
+    <!--am-gotop-icon am-icon-chevron-up-->
+</div>
+<hr>
+<script type="text/javascript" src="../js/amazeui.page.js"></script>
+<script>
+    $("#page1").page({pages:10});
+    // jump: function(context, first) {
+    //     console.log('当前第：' + context.option.curr + "页");
+    //     $("#content").html(thisDate(context.option.curr));
+    // }
+
+    $("#page3").page({
+        pages:10,
+        first: "首页", //设置false则不显示，默认为false
+        last: "尾页", //设置false则不显示，默认为false
+        prev: '<', //若不显示，设置false即可，默认为上一页
+        next: '>', //若不显示，设置false即可，默认为下一页
+        groups: 3, //连续显示分页数
+
+        jump:function(context){
+            $("#tips3").html("共"+context.option.pages+"页，当前第"+context.option.curr+"页");
+        }
+    });
+    var jumpaa = function(context) {//注意在全局作用域下定义
+        $("#tips").html('当前第：' + context.option.pages + "页");
+    };
+    // alert(jump());
+</script>
+</body>
+</html>

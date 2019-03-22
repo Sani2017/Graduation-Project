@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/amazeui.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/mycss.css"/>
+</head>
+<!--https://www.cnblogs.com/mr-amazing/p/5674188.html-->
+<style type="text/css">
+
+    .am-topbar .am-text-ir {
+    display: block;
+    margin-right: 10px;
+    height: 55px;
+    width: 140px;
+    background: url(http://a.static.amazeui.org/assets/i/ui/logo.png) no-repeat left center;
+    -webkit-background-size: 125px 24px;
+    background-size: 125px 24px;
+  }
+
+
+
+  </style>
+  
+<script>
+
+</script>
+<body>
+<div id="xs_login_output" style="display: none"></div>
+
+<header>
+    <div id="xs_header_back" class="am-topbar am-topbar-inverse">
+        <nav >
+            <div class="am-collapse am-topbar-collapse xs_text_center" id="doc-topbar-collapse-2">
+                <!-- 搜索框style="display:none"-->
+                <div class="xs_serch_input  transition " id="xs_serch_input" style="opacity:1;display: block;" >
+                    <form action="#" id="xs_header_serher">
+                        <span class="am-icon-close am-icon-sm xs_input_close" id="xs_input_close" onclick=""></span><!--clk() onkeyup="inutpSelect();"inutpSelect1();-->
+                        <input type="text" placeholder="请搜索……" autofocus="autofocus" autocomplete="off" id="xs_search_input" onblur="" onkeyup="selectItem(event);" style="outline:none;">
+                        <span class="am-icon-search am-icon-sm" id="xs_input_search"></span>
+                        <!--添加判断，如搜索框无值这调用clk()，有值跳转-->
+                        <div id="search-content" class="search-content">
+                            <div class="search-content-list">
+                                <div class="search-title">最近搜索</div>
+                                <div class="hot-list search-l">
+                                    <a href="https://www.zcool.com.cn/search/content?&amp;word=海报">海报</a>
+                                </div>
+                                <div class="hot-list search-l">
+                                    <a href="https://www.zcool.com.cn/search/content?&amp;word=猫 素描">猫 素描</a>
+                                </div>
+                                <div class="hot-list search-l">
+                                    <a href="https://www.zcool.com.cn/search/content?&amp;word=蒲公英">蒲公英</a>
+                                </div>
+                                <div class="search-title">热门搜索<span></span></div>
+                                <div class="hot-list search-l">
+                                    <a href="https://www.zcool.com.cn/search/content?&amp;word=海报">海报</a>
+                                </div>
+                                <div class="hot-list search-l">
+                                    <a href="https://www.zcool.com.cn/search/content?&amp;word=字体设计">字体设计</a>
+                                </div>
+                                <div class="hot-list search-l">
+                                    <a href="https://www.zcool.com.cn/search/content?&amp;word=logo">logo</a>
+                                </div>
+                                <div class="hot-list search-l">
+                                    <a href="https://www.zcool.com.cn/search/content?&amp;word=插画">插画</a>
+                                </div>
+                                <div class="hot-list search-l">
+                                    <a href="https://www.zcool.com.cn/search/content?&amp;word=画册">画册</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="js/jquery.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lte IE 8 ]>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+    <script src="js/amazeui.ie8polyfill.min.js"></script>
+    <![endif]-->
+    <script src="js/amazeui.min.js"></script>
+    <script src="js/pinto.min.js"></script>
+    <script src="js/img.js"></script>
+    <script src="js/outList.js"></script>
+    <script src="js/drag.js"></script>
+<script type="text/javascript">
+        window.onload = function () {
+        //outLoginBox();
+       // loginBox();
+        //outWorksList();
+        //outActivityList();
+        // $('#container').pinto();
+        //登录模块效果
+        
+    };
+      
+    //上下键 选择事件  searchBackgroud 为样式，只做标记，无实质样式，因为和其他样式不兼容，只能添加CSS
+    $(document).keydown(function (event) {
+        var upDownClickNum = $(".search-content-list .searchBackgroud ").length;
+        if ($(".search-content-list").css("display") == "block") {
+            alert(event.keyCode)
+            //38:上  40:下
+            if (event.keyCode == 38) {
+                if (upDownClickNum < 1) {
+                    $(".search-content-list .search-l:last a")
+                    .addClass('active')
+                    //.css({ "background": "#f0f0f0" })
+                    .addClass("searchBackgroud");
+                } else {
+                    $(".search-content-list .searchBackgroud ")
+                    .removeClass("searchBackgroud active")
+                    .css({ "background": "" })
+                    .parent().prev().children()//.next()////
+                    .addClass("searchBackgroud")
+                    .addClass('active')
+                    //.css({ "background": "#f0f0f0" });
+                }
+
+                stopDefault(event);//不阻止光标户向前移动
+            } else if (event.keyCode == 40) {
+                if (upDownClickNum < 1) {
+                    $(".search-content-list .search-l:first a")//li:first a"
+                    //$(".search-content-list .search-l:first a")//li:first a"
+                    .addClass('active')
+                    //.css({ "background": "#f0f0f0" })
+                    .addClass("searchBackgroud");
+                } else {
+                    $(".search-content-list .searchBackgroud")
+                    .removeClass("searchBackgroud active")
+                    .css({ "background": "" })
+                    .parent().next().children()
+                    .addClass("searchBackgroud")
+                    .addClass('active')
+                    //.css({ "background": "#f0f0f0" });
+
+                }
+                stopDefault(event);
+            }
+            upDownClickNum++;
+
+        }
+
+
+    });
+
+    //阻止事件执行
+    function stopDefault(e) {
+
+        //阻止默认浏览器动作(W3C)   
+        if (e && e.preventDefault) {
+            //火狐的 事件是传进来的e  
+            e.preventDefault();
+        }
+            //IE中阻止函数器默认动作的方式   
+        else {
+            //ie 用的是默认的event  
+            event.returnValue = false;
+        }
+    }
+</script>    
+</body>
+</html>

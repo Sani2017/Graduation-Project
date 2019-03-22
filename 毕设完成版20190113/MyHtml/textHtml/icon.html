@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+/*向下*/
+.triangle_border_down{
+    width:0;
+    height:0;
+    border-width:30px 30px 0;
+    border-style:solid;
+    border-color:#333 transparent transparent;/*灰 透明 透明 */
+    margin:40px auto;
+    position:relative;
+}
+.triangle_border_down span:after{
+    content: "";
+    display:block;
+    width:0;
+    height:0;
+    border-width:28px 28px 0;
+    border-style:solid;
+    border-color:#fc0 transparent transparent;/*黄 透明 透明 */
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+/*-- 111 -->
+*/
+
+    #fir{
+        width: 820px;
+        height: 300px;
+        border: 1px solid green;
+        margin: 5px auto;
+        
+    }
+    #fir div{
+        border: 1px dashed gray;
+        width: 100px;
+        height: 100px;
+        float: left;
+        margin: 5px;
+        transition: transform 0.5s;
+    }
+
+
+    /* #fir:hover .se{
+        transform: rotate(15deg);
+    } *//*黄 透明 透明 */
+    .fiir:hover .se{
+        position: absolute;
+    background: url(https://static.zcool.cn/git_z/build/images/footer-weixin-code.jpg) no-repeat;
+    background-size: 110px 110px;
+    -moz-background-size: 110px 110px;
+    -webkit-background-size: 110px 110px;
+    -o-background-size: 110px 110px;
+
+    width: 110px;
+    height: 110px;
+    bottom: 68px;
+    right: 11px; 
+       /*    content: "";
+    display:block;
+    width:0;
+    height:0;
+    border-width:28px 28px 0;
+    border-style:solid;
+    border-color:#fc0 transparent transparent;
+    position:absolute;
+    top:0px;
+    left:0px;
+      transform: rotate(15deg); */
+    }
+</style>
+</head>
+<body>                                     
+<!-- 向下的三角形 -->
+<div class="triangle_border_down">
+    <span></span>
+</div>
+<hr>
+<div id="fir"class="fiir">
+    <div class="se"></div>
+    <div class="se"></div>
+    <div class="se"></div>
+    
+</div>
+</body>
+</html>

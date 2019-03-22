@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户私人页</title>
+    <link rel="stylesheet" href="css/amazeui.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/mycss.css"/>
+    <link rel="stylesheet" href="css/user_personal.css">
+</head>
+<!--https://www.cnblogs.com/mr-amazing/p/5674188.html-->
+<style type="text/css">
+    .am-topbar .am-text-ir {
+        display: block;
+        margin-right: 10px;
+        height: 55px;
+        width: 140px;
+        background: url(images/logo.png) no-repeat left center;
+        -webkit-background-size: 125px 24px;
+        background-size: 125px 24px;
+    }
+</style>
+<script>
+</script>
+<body>
+<div id="xs_login_output" style="display: none"></div>
+
+<header>
+    <div id="xs_header_back" class="am-topbar am-topbar-inverse">
+        <nav >
+            <span id="logo" class="am-topbar-brand">
+                <a href="index.html" class="am-text-ir"></a>
+                <!-- <img src="" alt="logo">logo -->
+            </span>
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse-2'}" style="margin-top: 10px;">
+                <span class="am-sr-only">导航切换</span>
+                <span class="am-icon-bars"></span>
+            </button>
+            <div class="am-collapse am-topbar-collapse xs_text_center" id="doc-topbar-collapse-2">
+                <!-- 导航 style="display: none;"-->
+                <div class="xs_nav_content nav_transition transition  "  id="xs_nav_content">
+                    <ul class="am-nav am-nav-pills"  id="xs_header_nav">
+                        <li><a href="index.html">首页</a></li><!-- am-topbar-nav -->
+                        <li><a href="discover.html">发现</a></li>
+                        <li><a href="activity.html">活动</a></li>
+                        <li><a href="Popular_list.html">榜单</a></li>
+                        <li><a href="Popular_list_user.html">大佬</a></li>
+                        <input type="text" class="am-form-field am-input-sm xs_none_input" placeholder="搜索">
+                    </ul>
+                </div>
+                <!-- 搜索框style="display:none" placeholder="请搜索……"-->
+                <div class="xs_serch_input  transition " id="xs_serch_input"  >
+                    <form action="#" id="xs_header_serher">
+                        <span class="am-icon-close am-icon-sm xs_input_close" id="xs_input_close" onclick="clk();"></span><!-- onkeyup="inutpSelect();"-->
+                        <input type="text"  autofocus="autofocus" autocomplete="off"
+                               id="xs_search_input"   style="outline:none;"><!--onkeyup="inutpSelect();"-->
+                        <span class="am-icon-search am-icon-sm" id="xs_input_search"></span>
+                        <!--添加判断，如搜索框无值这调用clk()，有值跳转-->
+                        <div id="search-content" class="search-content">
+                            <div class="search-content-list">
+                                 
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="am-topbar-right" id="xs_content_login_box">
+                    <div class="am-topbar-right">
+
+                        <div class="am-dropdown" id="xs_login_box" data-am-dropdown="{boundary: '.am-topbar'}"><!-- style="height: 55px;"-->
+                            <!-- 用户未登录显示 -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+</header>
+<div id="content" style="top: -20px;">
+    <div id="xs_content_menu">
+        <!-- 下面的max-width控制一行有多少图 -->
+        <div class="am-g am-g-fixed blog-fixed blog-content" style="max-width: 1130px;">
+            <!--  am-figure 这个会class 会出现图片浏览器    -->
+            <figure data-am-widget="figure" class="am  am-figure-default "   data-am-figure="{  pureview: 'true' }">
+                <div class="container_area_left">
+                    <div class="card_media">
+                        <div class="card_center">
+                            <a href=""><img src="images/04.jpg" alt=""></a>
+
+                        </div>
+                        <div class="presonal_info">
+                            <a href="">usaaa啊啊啊啊啊啊啊啊啊啊啊啊erNAme</a>
+                        </div>
+                        <div class="position_info">
+                            <a href="">asdasd</a>
+                        </div>
+                    </div>
+
+                    <div class="personal_menu">
+                        <ul class="menu_list">
+                            <li class="menu_list_default ">
+
+                                <a href="javascript:void(0);" class="myWork" >
+                                    <i class="nowMyWork newList"></i>
+                                    我的作品
+                                </a>
+                            </li>
+                            <li class="menu_list_default ">
+                                <a href="javascript:void(0);" class="myInfo" >
+                                    <i class="nowMyInfo "></i>
+                                    我的资料
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container-area-right ">
+                    <!--个人作品-->
+                    <div class="user_work_box">
+                        <div class="tab_menu">
+                            <div class="tab_menu_info">
+                                <ul class="sort_show_wrap">
+                                    <li>
+                                        <span>分类</span>
+                                        <div class="sort_list_box work_sort_list">
+                                            <a href="javascript:void (0);" class="current">
+                                                全部
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span>状态</span>
+                                        <div class="sort_list_box">
+                                            <a href="javascript:void(0);" class="select_lookstate current_select_state" id="lookstate_0">
+                                                全部
+                                            </a>
+                                            <a href="javascript:void(0);" id="lookstate_1" class="select_lookstate">待审核</a>
+                                            <a href="javascript:void(0);" id="lookstate_2" class="select_lookstate">已通过</a>
+                                            <a href="javascript:void(0);" id="lookstate_3" class="select_lookstate" title="每日中午12点与午夜12点将自动清空该列表">已删除</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="container_box" class="work_list ">
+                            <div class="selectAll">
+                                    <input class="checkboxNow" value="chkall" type="checkbox" name="chkall" id="selectAll" >
+                                <a id="delWorkList" href="javascript:void(0);" class="outPut">执行</a>
+                            </div>
+                            <div id="container" class="outNoneText">
+                                <!--此处输出作品列表-->
+                                <span class="null_images"></span>
+                                <span class="work_null_tips">没有任何作品</span>
+                            </div>
+
+                            <div id="page3"><!--分页页码的显示-->
+                        </div>
+                    </div>
+                    </div>
+                    <!--个人设置-->
+                    <div class="bg_box_radius dsno">
+                        <div class="tab_menu_user">
+                            <ul class="tab_box">
+                                <li class="User_current">个人资料</li>
+                            </ul>
+                        </div>
+                        <div class="datum_item_box">
+                            <div class="text_center">
+                                <div class="user_avatars">
+                                    <div class="opacity_layer">
+                                        修改头像
+                                    </div>
+                                    <input type="file" class="upload_img"  id="userImg_file">
+                                    <div class="userImg_box">
+                                        <img id="userImg" src="images/05.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="user_name_box hover">
+                                    <span class="user_text_center " id="username_update">用户名</span>
+                                    <a href="javascript:void(0);" class="user_name_modify">修改1</a>
+                                </div>
+                                <div class="am-input-group input_name_box"  style="display: none;">
+                                    <input type="text" class="am-form-field userName_input" autofocus="autofocus">
+                                    <span class="am-input-group-btn">
+                                        <button class="xs_btn_style am-btn am-btn-default userName_btn" type="button">保存</button>
+                                    </span>
+
+
+                                </div>
+                                <span class="userName_tip dsno">asd</span>
+                            </div>
+                            <div class="datum_title_box">
+                                基本信息
+                                <input type="button" class="btn_user_info_save" value="保存">
+                            </div>
+                            <div class="table_wrap">
+                                <ul class="user_info_list">
+                                    <li>
+                                        <span class="user_info_title">手机</span>
+                                        <input type="text" class="user_info_input input_userPhon">
+                                        <span  class="user_info_tip user_info_title input_userPhon_tip dsno">asd</span>
+                                        <input type="hidden" class="input_userPhon_hidden">
+                                    </li>
+                                    <li>
+                                        <span class="user_info_title">邮箱</span>
+                                        <input type="text" class="user_info_input input_userEmail">
+                                        <span  class="user_info_tip user_info_title input_userEmail_tip dsno ">asd</span>
+                                        <input type="hidden" class="input_userEmail_hidden">
+                                    </li>
+                                    <li>
+                                        <span class="user_info_title">姓名</span>
+                                        <input type="text" class="user_info_input input_actualName">
+                                        <span  class="user_info_tip user_info_title dsno ">asd</span>
+                                        <input type="hidden" class="input_actualName_hidden">
+                                    </li>
+                                    <li>
+                                        <span class="user_info_title">标签</span>
+                                        <input type="text" class="user_info_input input_userlabel">
+                                        <span  class="user_info_tip user_info_title dsno ">asd</span>
+                                        <input type="hidden" class="input_userlabel_hidden">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </figure>
+<!--<button id="asd">asd</button>-->
+
+        </div>
+
+        <div id="tips3" class="dsno"></div>
+        <div id="allPage"></div>
+    </div>
+    <div id="xs_content_img_list" >
+    </div>
+
+
+    <script>
+    </script>
+</div>
+<footer>
+    <div class="am-g   blog-fixed">
+        <div class="xs_bottom_logo"></div>
+        <div class="xs_bottom_icon"><!--  xs_border_style-->
+            <p>
+                <a href="javacript:void(0);">
+                    <span class="am-icon-qq am-icon-fw xs_bottom_icon_style xs_qq_ewm">
+                        <i class="xs_qqicon_hover"></i>
+                    </span>
+                </a>
+                <a href="javacript:void(0);">
+                    <span class="am-icon-weixin am-icon-fw xs_bottom_icon_style xs_weixin_ewm">
+                        <i class="xs_wxicon_hover"></i>
+                </span></a>
+            </p>
+        </div>
+    </div>
+    <h1 class="hone" id="hiii">明天把分页  用好，并制作搜索页面</h1>
+
+    <div class="blog-text-center">&copy;2018 Purple dandel. Licensed under MIT license. Made with love By LWXYFER</div>
+</footer>
+<!-- 回到顶部功能 -->
+<div data-am-widget="gotop" class="am-gotop am-gotop-fixed xs_gotop">
+    <a href="#top" title="回到顶部">
+        <span class="am-gotop-title">回到顶部</span>
+        <i class="am-icon-btn am-icon-rocket amdoc-totop xs_gotop_icon"></i>
+    </a>
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/jquery.min.js"></script>
+<script src="js\jquery.cookie.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="js/amazeui.min.js"></script>
+<script src="js/pinto.min.js"></script>
+<script src="js/img.js"></script>
+<script src="js/outList.js"></script>
+<script src="js/drag.js"></script>
+<script src="js/selectkey.js"></script>
+<script  src="js/login.js"></script>
+<script  src="js/commonJS.js"></script>
+<!-- 此处是每个页面均会使用到的js -->
+<script type="text/javascript" src="js/amazeui.page.js"></script>
+
+<script type="text/javascript">
+    //获取url传值
+    var userIdValueUrl= GetQueryStringByUrl("userId");
+    //登录时保存的Id
+    var userIdlocal=localStorage.getItem("userId");
+    if(userIdValueUrl==null || userIdValueUrl!==userIdlocal){
+        window.location.href="index.html";
+        window.history.back(-1);
+    }else {
+        var localState= localStorage.getItem("loginState");
+        var userToken="";
+        var userInfo="";
+        //token验证
+        //判断用户是否勾选自动登录
+        if(localState==1){//勾选
+            userToken=localStorage.getItem("Token");
+            userInfo=localStorage.getItem("userInfo");
+        }
+        else if(cookState!=null && localState==2){
+            userToken=$.cookie("Token");
+            userInfo=$.cookie("userInfo");
+        }
+        $.ajax({
+            url: "http://localhost:6992/api/LoginToken/token",
+            type: "post",
+            async: true,
+            //data: _json, //不能直接写成 {id:"123",code:"tomcat"}
+            //dataType: "json",
+            // contentType: "charset=utf-8",  ,"cat":Search
+            data:{UserName:""+userInfo+"",Token:""+userToken+""},
+            //cache: false,
+            success: function (returndata) {
+                if(returndata.suc==true){
+                    GetUserInfoById(userIdValueUrl,1);
+                    outSort(2);
+                    var outPages=$("#page").text();
+                    //作品列表输出
+                    GetWorkInfoByUserIdForUserPersonal(1,1,0,3,0,outPages,1);
+                    document.title = userInfo+"-用户私人页-🐱蒲";
+
+                }else {
+                    alert(returndata.mes);
+                    window.location.href="index.html";
+                    window.history.back(-1);
+                }
+            },
+            error: function (returndata) { alert(returndata+"错误"); }
+        });
+    }
+    $(function () {
+    //     $(document).on('click', '#asd', function()
+    //     {
+    //         //删除服务器上旧用户头像
+    //         var oldUserImg=$("#userImg").attr("src");
+    //         //http://localhost:6992/Upload/userImg/d00d3800f99e48729aabacc63f0d3a56.png
+    //         var delWorkId=oldUserImg.lastIndexOf("2/");
+    //         var NowOldUserImg=oldUserImg.substring(delWorkId+1,oldUserImg.length);
+    //
+    //
+    //         deleFiles(NowOldUserImg);
+    //     });
+        //我的作品列表
+        $(document).on('click', '.myWork', function() {
+            $(".nowMyWork").addClass("newList");//选择我的作品
+            $(".nowMyInfo").removeClass("newList");//选择我的资料
+            $(".user_work_box").removeClass("dsno");//个人作品
+            $(".bg_box_radius").addClass("dsno");//个人设置
+            var outPages=$("#page").text();//当前总页数
+            outLookWorkList();
+        });//获取类型
+            $(document).on('click', '.work_sort', function() {
+                $(".work_sort").removeClass('current');
+                $(this).addClass('current');
+                outLookWorkList()
+            });//获取查看状态
+            $(document).on('click', '.select_lookstate', function() {
+                $(".select_lookstate").removeClass('current_select_state');
+                $(this).addClass('current_select_state');
+                outLookWorkList();
+            });
+            //批量_选择
+            $("#selectAll").bind("click",function(){
+                if($(this).prop("checked")){
+                    $("input[type='checkbox']").not(this).prop("checked",true);
+                }else{
+                    $("input[type='checkbox']").not(this).prop("checked",false);
+                }
+            });
+            //批量删除_按钮delWorkList
+            $(document).on('click', '#delWorkList', function() {
+                var cks=document.getElementsByName("checkName");
+                var str=[];
+                for(i=0;i<cks.length;i++){
+                    if(cks[i].checked){
+                        str.push(cks[i].value)
+                    }
+                }
+                console.log(str);
+                delWorkPut(str);
+                $("input[type='checkbox']").not(this).prop("checked",false);
+                //lert(cks);
+            });
+            //批量还原
+            $(document).on('click', '#revertWorkList', function() {
+                var cks=document.getElementsByName("checkName");
+                var str=[];
+                for(i=0;i<cks.length;i++){
+                    if(cks[i].checked){
+                        str.push(cks[i].value)
+                    }
+                }
+                console.log(str);
+                revertWorkPut(str);
+                $("input[type='checkbox']").not(this).prop("checked",false);
+            });
+
+            //当前页码的输出
+            $(document).on('click', '.clickPage', function() {
+                alert($(".am-active").index());
+                //获取当前页码//类型
+                var currentPage=$(".am-active").index();//$(this).attr("data-page");
+                outLookWorkList
+                (currentPage);
+
+            });
+        //我的资料列表
+        $(document).on('click', '.myInfo', function() {
+            $(".nowMyWork").removeClass("newList");//选择我的作品
+            $(".nowMyInfo").addClass("newList");//选择我的资料
+            $(".bg_box_radius").removeClass("dsno");//个人设置
+            $(".user_work_box").addClass("dsno");//个人作品
+            GetAllUserInfoById(userIdValueUrl);
+        });
+        //用户名修改box显示
+        $(document).on('click', '.user_name_modify', function() {
+            $(".input_name_box").toggle(700);
+        });
+        //用户名修改
+        $(document).on('click', '.userName_btn', function() {
+            var nowUserName=$(".userName_input").val();
+            var oldUserName=$("#username_update").text();
+            if(nowUserName!==oldUserName && nowUserName!==""){
+                updateUserInfo
+                (userIdValueUrl,null,nowUserName,null,null,null,null);
+                $("#username_update").html(nowUserName);
+                $(".input_name_box").toggle(700);
+                $(".userName_tip").addClass("dsno")
+            }else {
+                $(".userName_tip").removeClass("dsno").text("请输入正确的用户名")
+            }
+
+        });
+        $(document).on('click', '.btn_user_info_save', function(){
+            var userPhon=$(".input_userPhon").val();
+            var userPhon_hidden=$(".input_userPhon_hidden").val();
+            var nowUserPhon="";
+            var userEmail=$(".input_userEmail").val();
+            var userEmail_hidden=$(".input_userEmail_hidden").val();
+            var nowUserEmail="";
+            var actualName=$(".input_actualName").val();
+            var actualName_hidden=$(".input_actualName_hidden").val();
+            var nowActualName="";
+            var userlabel=$(".input_userlabel").val();
+            var userlabel_hidden=$(".input_userlabel_hidden").val();
+            var nowUserlabel="";
+            if((/^1(3|4|5|7|8)\d{9}$/.test(userPhon))){//手机判断
+                if(userPhon!==userPhon_hidden){
+                    nowUserPhon=userPhon;
+                }
+            }else {
+                $(".input_userPhon_tip").removeClass("dsno").text("请输入正确的手机号")
+            }//^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$
+            if((/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(userEmail))) {//邮箱判断
+                if(userEmail!==userEmail_hidden){
+                    nowUserEmail=userEmail;
+                }
+            }else {
+                $(".input_userEmail_tip").removeClass("dsno").text("请输入正确邮箱")
+            }
+            if(actualName!==actualName_hidden){
+                nowActualName=actualName;
+            }
+            if(userlabel!==userlabel_hidden){
+                nowUserlabel=userlabel;
+            }
+            updateUserInfo
+            (userIdValueUrl,null,null,nowUserPhon,nowUserEmail,nowActualName,nowUserlabel)
+        });
+
+        //用户头像更改并删除之前的
+        $(document).on('change', '#userImg_file', function() {
+            var fileM=document.querySelector("#userImg_file");
+            //获取文件对象，files是文件选取控件的属性，存储的是文件选取控件选取的文件对象，类型是一个数组
+            var fileObj = fileM.files[0];
+            //创建formdata对象，formData用来存储表单的数据，表单数据时以键值对形式存储的。
+            var formData = new FormData();
+            formData.append('file', fileObj);
+            $.ajax({
+                url: "http://localhost:6992/api/Works/UserImgUpload",
+                type: "post",
+                dataType: "json",
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (returndata) {
+                    if(returndata.errno===1){
+                        alert(returndata.msg);
+                    }else {
+                        var userImgSrc=returndata.data;//完整路径
+                        var relativePathSrc=returndata.relativePath;//相对路径
+                        //删除服务器上旧用户头像
+                        var oldUserImg=$("#userImg").attr("src");
+                        //http://localhost:6992/Upload/userImg/d00d3800f99e48729aabacc63f0d3a56.png
+                        var delWorkId=oldUserImg.lastIndexOf("2/");
+                        var NowOldUserImg=oldUserImg.substring(delWorkId+1,oldUserImg.length);
+
+
+                        deleFiles(NowOldUserImg);
+                        //本地更新用户头像
+                        $('.userImg_personal').attr('src',userImgSrc);//把src属性更改为上传头像完整路径;
+                        var localState= localStorage.getItem("loginState");//登录状态，是否自动登录
+                        if(localState==1) {//判断用户登录时是否勾选自动登录
+                            //客户端保存用户头像
+                            localStorage.setItem("userImg",relativePathSrc);//头像
+                        }else {
+                            $.cookie("userImg",relativePathSrc);
+                        }
+                        //数据库更新用户信息
+                        updateUserInfo
+                        (userIdValueUrl,relativePathSrc,null,null,null,null,null);
+                    }
+                },
+                error: function (returndata) { alert(returndata+"错误"); }
+            });
+        })
+    });
+    //单个删除作品
+    function delWork(obj_id) {
+        var delWorkIdAll=obj_id;//$(this).attr("id");
+        var delWorkId=delWorkIdAll.lastIndexOf("\_");
+        var nowdelWorkId=delWorkIdAll.substring(delWorkId+1,delWorkIdAll.length);
+        delWorkPut(nowdelWorkId);
+    }
+    //删除执行box
+    function delWorkPut(obj) {
+        //根据用户id输出作品列表
+        var _list=[0];//此处不能为空
+        _list.push(obj);
+        $.ajax({
+            type: "post",
+            url: "http://localhost:6992/api/Works/UpdateWorkIsDeleted",
+            contentType: 'application/json',
+            data:JSON.stringify(_list),
+            success: function (returndata) {
+                if(returndata.suc===true){
+                    alert(returndata.mes);
+                    outLookWorkList();
+                }else {
+                    alert(returndata.mes);
+                }
+            },
+            error: function (returndata) { alert(returndata+"错误"); }
+        });
+    }
+    //还原单个作品
+    function revertWork(obj_id) {
+        var delWorkIdAll = obj_id;//$(this).attr("id");
+        var delWorkId = delWorkIdAll.lastIndexOf("\_");
+        var nowdelWorkId = delWorkIdAll.substring(delWorkId + 1, delWorkIdAll.length);
+        revertWorkPut(nowdelWorkId)
+    }
+    //还原执行box
+    function revertWorkPut(obj_id){
+        //根据用户id输出作品列表
+        var _list = [0];
+        _list.push(obj_id);
+        $.ajax({
+            type: "post",
+            url: "http://localhost:6992/api/Works/UpdateWorkrevert",
+            contentType: 'application/json',
+            data: JSON.stringify(_list),
+            success: function (returndata) {
+                if (returndata.suc === true) {
+                    alert(returndata.mes);
+                    outLookWorkList();
+                } else {
+                    alert(returndata.mes);
+                }
+            },
+            error: function (returndata) {
+                alert(returndata + "错误");
+            }
+        });
+    }
+    //修改用户信息
+    function updateUserInfo
+    (UserId,UserImg,UserName,UserPhone,Email,ActualName,Userlabel){
+        $.ajax({
+            url: "http://localhost:6992/api/UserInfo/UpdateUserInfoByUserId",
+            type: "post",
+            async: true,
+            data:{
+                UserId:UserId,
+                UserName:UserName,
+                ActualName:ActualName,
+                Userlabel:Userlabel,
+                UserPhone:UserPhone,
+                Email:Email,
+                UserImg:UserImg,
+            },
+            success: function (returndata){
+                if(returndata.suc===false){
+                    alert(returndata.mes);
+                }
+            },
+            error: function (returndata) { alert(returndata+"错误"); }
+        });
+
+    }
+    //删除上传的文件
+    function deleFiles(fileUrl){
+        var imgUrl=fileUrl+"";
+        $.ajax({
+            url: "http://localhost:6992/api/Works/DeleFiles",
+            type: "get",
+            dataType: "json",
+            data: {fileUrl:imgUrl},
+            async: true,
+
+            success: function (returndata){
+            },
+            error: function (returndata) { alert(returndata+"错误"); }
+        });
+    }
+    window.onload = function () {
+        outLoginBox();//输出登录dom
+        loginBox();//输出header登录状态
+        //登录模块效果
+        $(".xs_login_mark").on('click',function(){
+            $(".xs_login_mark").removeClass('xs_content_current');
+            $(this).addClass('xs_content_current');
+            if($('.xs_login_display').hasClass('dsno')){
+                $('.xs_login_display').removeClass('dsno');
+                $(".xs_login_display").addClass('dsbl');
+            }
+            else if($('.xs_login_display').hasClass('dsbl')){
+                $('.xs_login_display').removeClass('dsbl');
+                $(".xs_login_display").addClass('dsno');
+            }
+            if($('.password').hasClass('dsbl')){//手机登录
+                $('.password').removeClass('dsbl');
+                $(".password").addClass('dsno');//不显示
+                $("#xs_password").val("");
+                $('#login_btn').attr({"disabled":"disabled"});//禁用
+                $('.xs_error_tips').addClass('dsno');
+            }else{
+                $('.password').removeClass('dsno');//密码登录
+                $("#xs_password").val("");
+                $(".password").addClass('dsbl');//显示
+                $('.xs_error_tips').addClass('dsno');
+                $('#login_btn').attr({"disabled":"disabled"});//禁用
+            }
+            $('#drag').drag();//滑动要放在登录模块是否显示之后
+        });
+        $('.btn-loading-example').click(function () {
+            var loginState=$(".xs_content_current").attr("id");
+            var str=loginState.lastIndexOf("\_");
+            var newState=loginState.substring(str+1,loginState.length);
+            var login_btn=$('#login_btn');
+            if(newState==0){//用户密码
+                var userName=$.trim($('#xs_username').val());//用户名或手机
+                var password=$.trim($('#xs_password').val());//用户密码
+                if(userName!=""&&password!=""){
+                    var $btn = $(this)
+                    $btn.button('loading');
+                    setTimeout(function(){
+                        $btn.button('reset');//
+                    }, 500);
+                    namePwd_login(userName,password);
+                }else{
+                    $('.xs_errpr_text ').text("所填值不能为空");
+                    $('.xs_error_tips').removeClass('dsno');
+                    login_btn.attr({"disabled":"disabled"});
+                    return;
+                }
+            }
+            if(newState==1){//手机验证
+                var userName=$.trim($('#xs_username').val());//用户名或手机
+                var smsCd=$.trim($('#sms-cd').val());//验证码
+                if(userName!=""&&smsCd!=""){//手机登录
+                    var $btn = $(this);
+                    $btn.button('loading');
+                    setTimeout(function(){
+                        $btn.button('reset');
+                    }, 500);
+                    phone_login(userName,smsCd);
+                }else{
+                    $('.xs_errpr_text ').text("所填值不能为空");
+                    $('.xs_error_tips').removeClass('dsno');
+                    login_btn.attr({"disabled":"disabled"});
+                    return;
+                }
+            }
+        });
+    };
+
+    //分頁頁碼的輸出
+    var clickPage;
+    function outPage(e){
+        if(e<=1){
+            $("#page3").addClass("dsno");
+        }
+        else{
+            $("#page3").removeClass("dsno");
+            var pagesHtml=$("#page").text();
+            if(e==pagesHtml){
+                return false;
+            }else{
+                //oldPage=e;
+                var str=e.toString();
+                $("#page3").page({
+                    pages:str,
+                    first: false,//"首页", //设置false则不显示，默认为false
+                    last: false,//"尾页", //设置false则不显示，默认为false
+                    prev: '＜',//<《 ▏  «»‹›◀▶◁▷﹤﹥＜＞ //若不显示，设置false即可，默认为上一页
+                    next: '＞', //若不显示，设置false即可，默认为下一页
+                    groups: 3, //连续显示分页数
+                    jump:function(context){
+                        $("#tips3").html("共"+context.option.pages+"页，当前第"+context.option.curr+"页");
+                    }
+                });
+            }
+        }
+    }
+    //输出作品列表
+    function outLookWorkList(currentPage) {
+        //取到作品类型
+        var sort= $(".current").attr("id");
+        var strSort=sort.lastIndexOf("\_");
+        var strSortState=sort.substring(strSort+1,sort.length);
+        //取到作品查看状态
+        var workStr= $(".current_select_state").attr("id");
+        var workStrState=workStr.lastIndexOf("\_");
+        var workStrStateInt=Number(workStr.substring(workStrState+1,workStr.length));
+        var outPages=$("#page").text();//当前总页数
+        if(currentPage==null){
+            currentPage=1;
+        }
+        switch (workStrStateInt) {
+            case 0://全部
+                GetWorkInfoByUserIdForUserPersonal
+                (currentPage,userIdValueUrl,strSortState,3,0,outPages,1);
+                $('.outPut').attr('id','delWorkList');
+                break;
+            case 1://待审核
+                GetWorkInfoByUserIdForUserPersonal
+                (currentPage,userIdValueUrl,strSortState,0,0,outPages,1);
+                $('.outPut').attr('id','delWorkList');
+                break;
+            case 2://已通过
+                GetWorkInfoByUserIdForUserPersonal
+                (currentPage,userIdValueUrl,strSortState,1,0,outPages,1);
+                $('.outPut').attr('id','delWorkList');
+                break;
+            case 3://已删除
+                GetWorkInfoByUserIdForUserPersonal
+                (currentPage,userIdValueUrl,strSortState,3,1,outPages,0);
+                $('.outPut').attr('id','revertWorkList');
+                break;
+            default://全部
+                GetWorkInfoByUserIdForUserPersonal
+                (currentPage,userIdValueUrl,0,3,0,outPages,1);
+                $('.outPut').attr('id','delWorkList');
+                break;
+        }
+    }
+</script>
+<script>
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    margin: 0;
+    padding: 0;
+}
+.content_center_box{
+    padding-bottom: 20px;
+}
+.content_details_box{
+    height: 330px;
+    padding-left: 460px;
+    position: relative;
+}
+.details_picture{
+    width: 440px;
+    height: 330px;
+    display: block;
+    position: absolute;
+    left: 0;
+}
+.details_title{
+    font-size: 24px;
+    color: #333333;
+    font-weight: normal;
+    line-height: 24px;
+    padding-right: 88px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.activity_lie{
+    margin-top: 14px;
+    line-height: 24px;
+    color: #bbbbbb;
+}
+.other-color{
+    color: #444444;
+}
+.details_describe_box{
+    height: 175px;
+    padding-top: 18px;
+    overflow: hidden;
+}
+.details_describe{
+    min-height: 120px;
+    line-height: 24px;
+    color: #666666;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    display: -moz-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    -moz-line-clamp: 5;
+    text-indent: 2em;
+}
+.details_main_btn{
+    margin-top: 16px;
+    position: absolute;
+    bottom: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.details_uplode_btn{
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+    line-height: 48px;
+    width: 140px;
+    height: 48px;
+    font-size: 14px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #444;
+    background: #ffd100;
+    border: 1px solid #ffd100;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+.details_performers{
+    float: right;
+    margin-right: -20px;
+    margin-top: 20px;
+}
+.details_performers a{
+    color: #bbb;
+    padding-right: 5px;
+
+}
+.details_performers a i{
+    padding-right: 5px;
+}
+.activity-content-top .content-details-box .active-card-partake {
+    float: left;
+    margin-right: 20px;
+
+    color: #aaa;
+    font-size: 12px;
+    cursor: default;
+}
+.am-active>.clickPage{
+    background-color: #FF9222!important;
+    border-color: #FF9222!important;
+}
+#page3 a{
+    border-radius: 5px!important;
+}
+
+
+

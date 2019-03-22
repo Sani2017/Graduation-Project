@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input class="checkboxes" value="chkall" type="checkbox" name="chkall" id="selectAll" >
+
+
+<input class="checkboxes"  type="checkbox"   name="checkName" >
+</body>
+</html>
+<script src="../js/jquery.js"></script>
+
+
+<script type="text/javascript">
+    $(function(){
+        $("#selectAll").bind("click",function(){
+            if($(this).prop("checked")){
+                $("input[type='checkbox']").not(this).prop("checked",true);
+            }else{
+                $("input[type='checkbox']").not(this).prop("checked",false);
+            }
+        });
+    })
+    </script>

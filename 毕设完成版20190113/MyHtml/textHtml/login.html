@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/amazeui.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/mycss.css"/>
+
+<body>
+    <div class="xs_user_login">    </div>
+
+    <div class="xs_user_login_box am-panel am-panel-default">
+        <a href="#" class="am-close xs_login_close">&times;</a>
+        <ul class="xs_user_login_select">
+            <li class="xs_login_mark xs_content_current"><a href="#">密码登录</a></li>
+            <li class="xs_login_mark"><a href="#">手机登录</a></li>
+        </ul>
+
+        <div class="xs_error_tips dsno" id="sms-error-tips" >
+            <span class="ipt-tips-default ipt-default-current js-err-l">
+                <i class="am-icon-minus-circle" style="padding-right: 5px;color:red"></i>
+                <span class="font_size xs_errpr_text ">请输入正确的手机号</span>
+            </span>
+        </div>
+
+            <div class="username">
+                <input type="text" id="xs_username" placeholder="用户名/手机号" autocomplete="off" class="xs_login_style">
+            </div>
+            <div class="password  dsbl">
+                <input type="password" id="xs_password" placeholder="请输入密码" autocomplete="off" class="xs_login_style">
+            </div>
+            <div class="xs_login_display dsno">
+                <div id="wrapper" >
+                    <div id="drag">
+                        <div class="drag_bg"></div>
+                        <div class="drag_text slidetounlock" onselectstart="return false;" unselectable="on">
+                            请按住滑块，拖动到最右边
+                        </div>
+                        <div class="handler handler_bg am-icon-angle-double-right"></div>
+                    </div>
+                </div>
+                <div class="l-sms-code js-ipt-h "> 
+                    <input type="text" autocomplete="off" class="text-style ipt-short-current xs_sms_input xs_login_style " id="sms-cd">
+                    <input type="button" class="xs_sms_btn xs_login_btn sms-cd-btn btn-default-main" id="sms-send-cd-btn" value="发送验证码">
+                    <span class="n-receive-cd js-no-ver-code">没收到验证码？</span>
+                </div>
+            </div>
+            <button type="button"  class=" xs_login_btn am-btn am-btn-primary btn-loading-example" style="outline:none;">登&nbsp;&nbsp;录</button>
+            <!--disabled-->
+            <div class="xs_auto_login">
+                <label class="auto-login-cd">
+                    <input type="checkbox" name="autolog" id="auto-login-cd" checked="" class="auto-login-cd ">
+                    下次自动登录
+                    <div class="show-box"></div>
+                </label>
+                <div class="login-links">
+                    <a href="javascript:;" target="_blank" class="">忘记密码</a>
+                    <span>|</span>
+                    <a href="javascript:;" target="_blank" class="">注册</a>
+                </div>
+            </div>
+        </div>
+</body>
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="js/amazeui.min.js"></script>
+<script src="js/pinto.min.js"></script>
+<script src="js/img.js"></script>
+<script src="js/outList.js"></script>
+<script src="js/drag.js"></script>
+
+<script>
+    $(".xs_login_mark").click(function(){
+        $(".xs_login_mark").removeClass('xs_content_current');
+        $(this).addClass('xs_content_current');
+        if($('.xs_login_display').hasClass('dsno')){
+            $('.xs_login_display').removeClass('dsno');
+            $(".xs_login_display").addClass('dsbl');
+        }
+        else if($('.xs_login_display').hasClass('dsbl')){
+            $('.xs_login_display').removeClass('dsbl');
+            $(".xs_login_display").addClass('dsno');
+        }
+        if($('.password').hasClass('dsbl')){
+            $('.password').removeClass('dsbl');
+            $(".password").addClass('dsno');
+        }else{
+            $('.password').removeClass('dsno');
+            $(".password").addClass('dsbl');
+        }
+        $('#drag').drag();//滑动要放在登录模块是否显示之后
+        // $(".xs_login_display").addClass('dsno')
+        // $(".xs_login_display").removeClass('dsind');
+
+        // dsno
+        // dsind
+    });
+    $('.btn-loading-example').click(function () {
+        var $btn = $(this)
+        $btn.button('loading');
+        setTimeout(function(){
+            $btn.button('reset');
+        }, 5000);
+    });
+</script>
+</html>

@@ -1,0 +1,121 @@
+<html>
+<head>
+        <meta charset="utf-8">
+
+<title>让图片自动适应DIV容器大小</title>
+<style>
+.ShaShiDi{
+width:246px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+            /*为了效果明显，可以将如下边框打开，看一下效果*/
+            /* border:1px solid black; */
+}
+
+.ShaShiDi img{
+    width:100%;
+    height:auto;
+}
+
+
+@media screen and (max-width: 1600px){
+.card-box {
+    width: 210px;}
+}
+.card-box {
+    float: left;
+    position: relative;
+    background: #fff;
+    border-radius: 4px;
+    margin: 0 20px 20px 0;
+}
+@media screen and (max-width: 1600px){
+.card-box,.card-img, .card-box .card-img a img {
+    width: 210px;
+    height: 158px;
+}}
+.card-box .card-img {
+    position: relative;
+    border-radius: 4px 4px 0 0;
+}
+
+.card-box .card-img .card-mark-tip {
+    display: inline-block;
+    position: absolute;
+    font-size: 12px;
+    color: #fff;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 10px;
+    border-radius: 4px 0;
+    background: rgba(0,0,0,.5);
+    z-index: 1;
+}
+
+a {
+    color: inherit;
+    outline: 0;
+}
+
+.card-box .card-img a img {
+    width: 210px;
+    height: 158px;
+}
+
+.card-box .card-img a img {
+    vertical-align: middle;
+    border: none;
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    -webkit-transition: .1s linear;
+    transition: .1s linear;
+    display: block;
+}
+.card-box .card-info {
+    border-bottom: 1px solid #eee;
+    padding: 11px 16px 13px;
+    height: 75px;
+    position: relative;
+}
+.card-box .card-item {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 16px;
+    font-size: 12px;
+    position: relative;
+}
+</style>
+</head>
+<body>
+
+        <div class="card-box">
+    
+                <div class="card-img">
+                    <span class="card-mark-tip">正版图片</span>
+                    <a href="https://www.zcool.com.cn/special/2019hellorf-new-year/" title="百图贺新春" target="_blank" class="card-img-hover" z-st="content_ad_cover">
+                        <img src="images\09.jpg" title="百图贺新春" alt=""></a>
+                </div>
+                <div class="card-info">
+                    <p class="card-info-title"><a href="https://www.zcool.com.cn/special/2019hellorf-new-year/" class="title-content" target="_blank" title="百图贺新春" z-st="content_ad_title" style="width: 228px;">百图贺新春</a></p>
+                    <p class="card-info-type" title="特别企划">特别企划</p>
+                </div>
+                <div class="card-item">
+                    <a href="images\09.jpg" title="站酷海洛" target="_blank" z-st="content_ad_publisher">站酷海洛</a><span class="time" title="推广">推广</span>
+                </div>
+            
+            <!-- http://www.hellorf.com/?utm_source=ad_zcool https://img.zcool.cn/community/01852d5c08ae2ba80121ab5d4ffec2.jpg-->
+        </div>
+
+    <hr>
+    <div class="ShaShiDi">
+        <img src="images\11.jpg"/>
+        <hr>
+    </div>
+    <hr>
+    <div class="ShaShiDi" style="margin:0 0 0 300px">
+        <img src="images\09.jpg"/>
+    </div>
+</body>
+</html>

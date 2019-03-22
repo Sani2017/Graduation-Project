@@ -1,0 +1,3 @@
+http://plugins.amazeui.org/magnifier.html#project=am-page&author=lscho
+http://beta.amazeui.org/docPreview/components/collapse.html
+http://amazeui.org/widgets/pagination#
